@@ -29,7 +29,7 @@ router.post('/create-post', async (req, res) => {
     }
 });
 
-router.get('/showPosts', async (req, res) => {
+router.get('/show-posts', async (req, res) => {
     if (req.session.user) {
         const user = req.session.user.email;
         const posts = await Blog.find({createdBy: user});

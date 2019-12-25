@@ -2,6 +2,12 @@ const express = require("express");
 const router = express.Router();
 const Admin = require("../Models/Admin");
 
+router.get('/logout', (req, res) => {
+    req.session.destroy();
+    return res.json({scs: true});
+});
+
+
 router.get('/checkStat', (req, res) => {
     if (req.session.user)
         return res.json({scs: true, user: req.session.user});

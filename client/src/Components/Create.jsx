@@ -39,7 +39,7 @@ const Create = () => {
 
     return (
         <>
-        <Navbar name="Create Post" createPost={false} showPosts={true} />
+        <Navbar name="Create Post" createPost={false} showPosts={true} logged={true}/>
         <form id="frm" method="POST">
         {scs && <h3 className="global-flash-success">{msg}</h3>}
         {!scs && <h3 className="global-flash-failure">{msg}</h3>}

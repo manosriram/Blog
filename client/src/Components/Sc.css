@@ -48,6 +48,12 @@
     color: red;
 }
 
+.innerContent {
+    margin: auto;
+    width: 60%;
+    border: 1px solid black;
+}
+
 @media only screen and (max-width: 600px) {
     #prop {
         display: none;

@@ -63,6 +63,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Navbar = (props, props1) => {
+
+
+    const logout = async e => {
+        const resp = await fetch("/auth/logout");
+        
+        window.location = "/";
+    };
+
+
     const classes = useStyles();
     const preventDefault = event => event.preventDefault();
 
@@ -90,12 +99,16 @@ const Navbar = (props, props1) => {
         {props.showPosts && (
             <h3><a href="/show-posts" id="prop">Show Posts</a></h3>
         )}
+        &nbsp;
+        &nbsp;
+        {props.logged && (
+            <h3><a href="#" id="prop" onClick={logout}>Logout</a></h3>
+        )}
 
+            </Toolbar>
+            </AppBar>
+            </div>
+        );
+        }
 
-        </Toolbar>
-        </AppBar>
-        </div>
-    );
-}
-
-export default Navbar;
+        export default Navbar;
