@@ -3,8 +3,9 @@ import Navbar from "./Navbar";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import "./Sc.css";
-import Home from "./Home";
+import AdminHome from "./AdminHome";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Create from "./Create";
 
 const Admin = () => {
     const [data, setData] = useState({});
@@ -45,7 +46,7 @@ const Admin = () => {
         setData({...data, [e.target.name]: e.target.value});
     }
 
-    if (home) return <Home />
+    if (home) return <Create />
 
     return (
         <>

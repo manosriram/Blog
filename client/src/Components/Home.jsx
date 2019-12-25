@@ -5,7 +5,8 @@ import Container from '@material-ui/core/Container';
 const Home = () => {
     return (
         <>
-        <Navbar name="Home" createPost={true} showPosts={true}/> 
+        <Navbar name="Home" /> 
+
         <div id="choose">
             
         </div>

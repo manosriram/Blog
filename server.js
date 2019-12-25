@@ -13,9 +13,10 @@ mongoose
   .then(() => console.log("MongoDB Connected !"))
   .catch(err => console.log(err));
 
-app.use(session({secret:"mano1234", resave: false, saveUninitialized: true}));
+app.use(session({secret:"mano1234", resave: false, saveUninitialized: true, maxAge: new Date(Date.now() + (30 * 86400 * 1000))}));
 app.use(bp.json());
 app.use("/auth", require("./Controllers/Auth"));
+app.use("/blog", require("./Controllers/Blog"));
 
 app.listen(PORT, () => console.log(`Server at ${PORT}`));
 module.exports = app;
