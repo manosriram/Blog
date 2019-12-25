@@ -2,12 +2,18 @@ const express = require("express");
 const router = express.Router();
 const Admin = require("../Models/Admin");
 
+router.get('/checkStat', (req, res) => {
+    if (req.session.user)
+        return res.json({scs: true, user: req.session.user});
+    else
+        return res.json({scs: false});
+});
+
 router.post("/enterAdmin", async (req, res) => {
-    console.log(req.body);
     const {email, password} = req.body.data;
 
     try {
-        const adm = await Admin.findOne({email}).then().catch();
+        const adm = await Admin.findOne({email});
 
         if (!adm) {
             const adm = new Admin({
@@ -17,14 +23,18 @@ router.post("/enterAdmin", async (req, res) => {
             adm.save();
             req.session.user = adm;
         } else {
-            if (
+            if (password !== adm.password)
+                return res.json({scs:false, msg: "Incorrect Password."});
+            if (req.session.user)
+                return res.json({scs: false, msg: "Already Logged-In"});
+
             req.session.user = adm;
+            return res.json({scs: true, msg: "Logged-IN"});
         }
     } catch(er) {
-        return res.json({scs: false});
+        return res.json({scs: false, msg:"Error Occured"});
     }
 
-    return res.json({scs: true});
 });
 
 router.get('/', (req, res) => {

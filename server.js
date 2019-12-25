@@ -4,6 +4,7 @@ const bp = require("body-parser");
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 5000;
 const db = require("./DBase/url").url;
+const session = require("express-session");
 require("dotenv").config();
 
 mongoose.set("useFindAndModify", false);
@@ -12,6 +13,7 @@ mongoose
   .then(() => console.log("MongoDB Connected !"))
   .catch(err => console.log(err));
 
+app.use(session({secret:"mano1234", resave: false, saveUninitialized: true}));
 app.use(bp.json());
 app.use("/auth", require("./Controllers/Auth"));
 
