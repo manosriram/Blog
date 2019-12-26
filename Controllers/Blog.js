@@ -18,6 +18,7 @@ router.post('/create-post', async (req, res) => {
         const blg = new Blog({
             title,
             content,
+            category,
             createdBy: em
         });
 
@@ -30,11 +31,9 @@ router.post('/create-post', async (req, res) => {
 });
 
 router.get('/show-posts', async (req, res) => {
-    if (req.session.user) {
-        const user = req.session.user.email;
-        const posts = await Blog.find({createdBy: user});
+        const posts = await Blog.find({createdBy: "mano.sriram0@gmail.com"});
+        console.log(posts);
         return res.json({posts});
-    } else return res.json({scs: false, msg: "No User."});
 });
 
 module.exports = router;

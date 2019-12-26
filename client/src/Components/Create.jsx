@@ -5,6 +5,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import "./Sc.css";
+const d = require("./GetStat");
 
 const Create = () => {
     const [ed, setEd] = useState("");

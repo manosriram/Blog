@@ -54,8 +54,36 @@
     border: 1px solid black;
 }
 
+#tle {
+    font-size: 2.5vh;
+    padding-right: 15px;    
+}
+
+#contn {
+    margin: auto;
+    text-align: center;
+}
+
+#one {
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    float: left;
+    margin-left: 20vw;
+}
+
+#two {
+    text-align: center;
+    float: right;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-right: 25vw;
+}
+
 @media only screen and (max-width: 600px) {
     #prop {
         display: none;
+    }
+    #one, #two {
+        margin: 0;
+        float: none;
     }
 }
