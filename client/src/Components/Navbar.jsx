@@ -1,114 +1,29 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import { fade, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import Link from '@material-ui/core/Link';
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-    },
-    title: {
-        flexGrow: 1,
-        display: 'none',
-        [theme.breakpoints.up('sm')]: {
-            display: 'block',
-        },
-    },
-    search: {
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
-        '&:hover': {
-            backgroundColor: fade(theme.palette.common.white, 0.25),
-        },
-        marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(1),
-            width: 'auto',
-        },
-    },
-    searchIcon: {
-        width: theme.spacing(7),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    inputRoot: {
-        color: 'inherit',
-    },
-    inputInput: {
-        padding: theme.spacing(1, 1, 1, 7),
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            width: 120,
-            '&:focus': {
-                width: 200,
-            },
-        },
-    },
-}));
-
-const Navbar = (props, props1) => {
-
+const Navbar = (props, props1) => { 
 
     const logout = async e => {
         const resp = await fetch("/auth/logout");
-        
         window.location = "/";
     };
 
-
-    const classes = useStyles();
-    const preventDefault = event => event.preventDefault();
-
     return (
-        <div className={classes.root}>
-        <AppBar position="static">
-        <Toolbar>
-        <IconButton
-        edge="start"
-        className={classes.menuButton}
-        color="inherit"
-        aria-label="open drawer"
-        >
-        <MenuIcon />
-        </IconButton>
-        <Typography className={classes.title} variant="h6" noWrap>
-        {props.name}
-        </Typography>
+        <div id="nav">
+        {props.createPost && <a href="/create-post" id="reddit">Create-Post</a>}
+        &nbsp;
+        &nbsp;
+        {props.showPosts && <a href="/show-posts" id="reddit">Show-Posts</a>}
+        &nbsp;
+        &nbsp;
+        <a id="reddit" href="#">Projects</a>
+        &nbsp;
+        &nbsp;
+        <a id="reddit" href="#">About</a>
+        &nbsp;
+        &nbsp;
+        {props.logged && <a href="#" onClick={logout} id="reddit">Logout</a>}
+        </div>
+);
+}
 
-        {props.createPost && (
-            <h3><a href="/create-post" id="prop">Create Post</a></h3>
-        )}
-        &nbsp;
-        &nbsp;
-        {props.showPosts && (
-            <h3><a href="/show-posts" id="prop">Show Posts</a></h3>
-        )}
-        &nbsp;
-        &nbsp;
-        {props.logged && (
-            <h3><a href="#" id="prop" onClick={logout}>Logout</a></h3>
-        )}
-
-            </Toolbar>
-            </AppBar>
-            </div>
-        );
-        }
-
-        export default Navbar;
+export default Navbar;

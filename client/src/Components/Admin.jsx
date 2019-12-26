@@ -50,7 +50,7 @@ const Admin = () => {
 
     return (
         <>
-        <Navbar name="Admin" />
+        <Navbar name="Admin" Git={true}/>
 
         {loading && (
             <div id="spin">

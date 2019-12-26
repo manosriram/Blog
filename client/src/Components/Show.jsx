@@ -11,7 +11,6 @@ const md = require("marked");
 const dt = require("datejs");
 const userStat = require("./GetStat");
 const moment = require("moment");
-const _ = require("lodash");
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -24,14 +23,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Show = () => {
+    const categories = ["Announcements", "Data-Structures", "Algorithms", "Chill ⏸"];
     const classes = useStyles();
     const [posts, setPosts] = useState([]);
     const [allPosts, setAllPosts] = useState([]);
     const [cat, setCat] = useState([]);
     const [age, setAge] = useState("");
     const [now, setNow] = useState("Select filter");
-    let hash = {};
-    const filterPosts = val => {};
 
     const handleChange = event => {
         if (event.target.value === "All") {
@@ -50,9 +48,6 @@ const Show = () => {
         data = data.posts;
         setPosts(data);
         setAllPosts(data);
-        data.map(el => {
-            setCat(...cat, el.category);
-        });
     };
 
     React.useEffect(() => {
@@ -63,17 +58,17 @@ const Show = () => {
     var momentDate, jsD;
     return (
         <>
-        <Navbar name="Show Posts" createPost={true} showPosts={false} logged={true}/>
+        <Navbar name="Show Posts" showPosts={false} Git={true}/>
         <div id="inCont">
         <div id="contn">
         <FormControl className={classes.formControl}>
         <Select defaultValue={"Select Filter"} value={now} onChange={handleChange} displayEmpty className={classes.selectEmpty}>
         <MenuItem value="All">All</MenuItem>
-        {allPosts.map((el, ind) => {
-                return <MenuItem value={el.category}>{el.category}</MenuItem>
+        {categories.map((el, ind) => {
+                return <MenuItem value={el}>{el}</MenuItem>
         })}
         </Select>
-        <FormHelperText>Select Filter.</FormHelperText>
+        <FormHelperText>Filter Category</FormHelperText>
         </FormControl>
         </div>
 
@@ -83,10 +78,16 @@ const Show = () => {
                 return(
                     <>
                     <div id="one">
+                    <div id="when">
+                    <time>{moment(el.createdOn).format("MMMM D, YYYY")}</time>
+                    &nbsp;
+                    <span>»</span>
+                    &nbsp;
                     <a href={"mano"} id="tle">{el.title}</a>
                     <span>[{el.category}]</span>
                     <br />
                     <br />
+                    </div>
                     </div>
                     </>
                 );
@@ -94,10 +95,16 @@ const Show = () => {
                 return(
                     <>
                     <div id="two">
+                    <div id="when">
+                    <time>{moment(el.createdOn).format("MMMM D, YYYY")}</time>
+                    &nbsp;
+                    <span>»</span>
+                    &nbsp;
                     <a href={"mano"} id="tle">{el.title}</a>
                     <span>[{el.category}]</span>
                     <br />
                     <br />
+                    </div>
                     </div>
                     </>
                 );
