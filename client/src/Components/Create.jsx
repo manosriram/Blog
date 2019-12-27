@@ -1,9 +1,3 @@
-import 'froala-editor/js/froala_editor.pkgd.min.js';
-
-import 'froala-editor/css/froala_style.min.css';
-import 'froala-editor/css/froala_editor.pkgd.min.css';
-
-import FroalaEditor from 'react-froala-wysiwyg';
 import Show from "./Show";
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -48,6 +42,7 @@ const Create = () => {
     const [scs, Setscs] = useState(false);
     const [now, setNow] = useState("All");
     let [cont, setCont] = useState("");
+    const [unParsed, setUP] = useState("");
 
     const [value, setValue] = useState("**Hello world!!!**");
 

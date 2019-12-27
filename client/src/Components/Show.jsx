@@ -10,7 +10,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import "./Sc.css";
 import React, {useState} from 'react';
 import Navbar from "./Navbar";
-const md = require("marked");
 const dt = require("datejs");
 const userStat = require("./GetStat");
 const moment = require("moment");
@@ -66,7 +65,6 @@ const Show = props => {
     }, []);
 
     if (postID) {
-        console.log(history);
         history.push(`/post/${postID}`);
     }
 

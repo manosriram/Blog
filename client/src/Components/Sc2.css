@@ -17,11 +17,16 @@
 }
 
 #footer {
+    position: fixed;
     text-align: center;
     font-family: "PT Serif", serif;
     font-size: 15px;
-    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
+}
+#prog {
+    top:50%;
+    left: 50%;
+    position: absolute;
 }
