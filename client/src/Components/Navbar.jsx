@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Sc2.css";
 
 const Navbar = (props, props1) => { 
 
@@ -15,13 +16,14 @@ const Navbar = (props, props1) => {
         {props.showPosts && <a href="/show-posts" id="reddit">Show-Posts</a>}
         &nbsp;
         &nbsp;
-        <a id="reddit" href="#">Projects</a>
+        <a id="reddit" href="/projects">Projects</a>
         &nbsp;
         &nbsp;
-        <a id="reddit" href="#">About</a>
+        <a id="reddit" href="/about">About</a>
         &nbsp;
         &nbsp;
         {props.logged && <a href="#" onClick={logout} id="reddit">Logout</a>}
+        <p id="footer">© Copyright 2019 by Mano Sriram </p>
         </div>
 );
 }

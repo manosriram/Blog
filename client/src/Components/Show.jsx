@@ -1,3 +1,6 @@
+import {useHistory} from "react-router-dom";
+import Post from "./Post";
+import CircularProgress from '@material-ui/core/CircularProgress';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -22,14 +25,21 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Show = () => {
+const Show = props => {
     const categories = ["Announcements", "Data-Structures", "Algorithms", "Chill ⏸"];
+    let history = useHistory();
     const classes = useStyles();
     const [posts, setPosts] = useState([]);
+    const [postID, setPostID] = useState("");
     const [allPosts, setAllPosts] = useState([]);
     const [cat, setCat] = useState([]);
     const [age, setAge] = useState("");
     const [now, setNow] = useState("Select filter");
+    const [spin, isSpinning] = useState(true);
+
+    const openPost = e => {
+        setPostID(e);
+    };
 
     const handleChange = event => {
         if (event.target.value === "All") {
@@ -52,8 +62,13 @@ const Show = () => {
 
     React.useEffect(() => {
         fetchData();
-
+        isSpinning(false);
     }, []);
+
+    if (postID) {
+        console.log(history);
+        history.push(`/post/${postID}`);
+    }
 
     var momentDate, jsD;
     return (
@@ -65,12 +80,13 @@ const Show = () => {
         <Select defaultValue={"Select Filter"} value={now} onChange={handleChange} displayEmpty className={classes.selectEmpty}>
         <MenuItem value="All">All</MenuItem>
         {categories.map((el, ind) => {
-                return <MenuItem value={el}>{el}</MenuItem>
+            return <MenuItem value={el}>{el}</MenuItem>
         })}
         </Select>
         <FormHelperText>Filter Category</FormHelperText>
         </FormControl>
         </div>
+        {spin && <CircularProgress />}
 
         <br />
         {posts.map((el, ind) => {
@@ -83,7 +99,7 @@ const Show = () => {
                     &nbsp;
                     <span>»</span>
                     &nbsp;
-                    <a href={"mano"} id="tle">{el.title}</a>
+                    <a id="tle" onClick={() => openPost(el._id)}>{el.title}</a>
                     <span>[{el.category}]</span>
                     <br />
                     <br />
@@ -100,7 +116,7 @@ const Show = () => {
                     &nbsp;
                     <span>»</span>
                     &nbsp;
-                    <a href={"mano"} id="tle">{el.title}</a>
+                    <a id="tle" onClick={() => openPost(el._id)}>{el.title}</a>
                     <span>[{el.category}]</span>
                     <br />
                     <br />

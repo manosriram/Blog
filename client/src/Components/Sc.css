@@ -1,6 +1,13 @@
 * {
     outline: none;
 }
+a {
+    color: rgb(0, 0, 255);
+    text-decoration: none;
+}
+#when a:hover {
+    text-decoration: underline;
+}
 #frm, #spin {
     outline: none;
     margin: auto;
@@ -102,8 +109,8 @@
 }
 
 #tle:hover {
-    text-decoration: none;
     color: orange;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {

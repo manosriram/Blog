@@ -1,0 +1,27 @@
+#container a {
+    color: rgb(0, 0, 255);
+}
+#container a:hover {
+    color: orange;
+}
+#container {
+    font-family: "PT Serif", serif;
+    display: block;
+    line-height: 25px;
+    margin-left: 20vw;
+    margin-right: 25vw;
+    padding: 0;
+    padding-top: 10vh;
+    font-size: 15px;
+    text-align: left;
+}
+
+#footer {
+    text-align: center;
+    font-family: "PT Serif", serif;
+    font-size: 15px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}

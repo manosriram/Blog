@@ -1,3 +1,9 @@
+import 'froala-editor/js/froala_editor.pkgd.min.js';
+
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
+
+import FroalaEditor from 'react-froala-wysiwyg';
 import Show from "./Show";
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -7,8 +13,6 @@ import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 import React, {useState} from 'react';
 import Navbar from "./Navbar";
-import CKEditor from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import "./Sc.css";
@@ -25,6 +29,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Create = () => {
+    const options = {
+        colorsButtons: ["colorsBack", "|", "-"],
+        fontFamilySelection: true,
+        fontFamily: {
+            'Arial,Helvetica,sans-serif': 'Font 1',
+            'Impact,Charcoal,sans-serif': 'Font 2',
+            'Tahoma,Geneva,sans-serif': 'Font 3'
+        }
+    };
     const classes = useStyles();
     const categories = ["Announcements", "Data-Structures", "Algorithms", "Chill ⏸"];
     const [isUser, checkUser] = useState(false);
@@ -33,7 +46,7 @@ const Create = () => {
     const [msg, setMsg] = useState("");
     const [cat, setCat] = useState("");
     const [scs, Setscs] = useState(false);
-    const [now, setNow] = useState("Choose");
+    const [now, setNow] = useState("All");
 
     const fetchUser = async () => {
         const resp = await userStat();
@@ -53,15 +66,22 @@ const Create = () => {
         setNow(event.target.value);
     };
 
+    const handleFroalaChange = () => {
+        let el = document.querySelector(".fr-element fr-view");
+        console.log(el);
+    };
+
     const fetchNThrow = async e => {
         e.preventDefault();
+
+        let text = document.querySelector(".fr-element.fr-view").innerHTML;
         const resp = await fetch("/blog/create-post", {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({content: ed.ed, title:titl.titl, category: cat})
+            body: JSON.stringify({content: text, title:titl.titl, category: cat})
         });
         const data = await resp.json();
         setMsg(data.msg);
@@ -92,14 +112,12 @@ const Create = () => {
 
         <br/>
         <br/>
-        <CKEditor
-        name="edit"
-        editor={ ClassicEditor }
-        onChange={ ( event, editor ) => {
-            const data = editor.getData();
-            setEd({...ed, ed: data});
-        }}
+
+        <FroalaEditor
+        tag='textarea'
+        options={options}
         />
+
         <br />
         <Button variant="contained" color="primary" onClick={fetchNThrow}>
         Post

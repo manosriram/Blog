@@ -2,6 +2,17 @@ const express = require("express");
 const router = express.Router();
 const Blog = require("../Models/Blog");
 
+router.post('/get-post', async (req, res) => {
+    const {postID} = req.body;
+    try {
+    const post = await Blog.findOne({_id: postID});
+    return res.json({scs: true, postContent: post});
+    } catch (er) {
+        console.log(er);
+        return res.json({scs: false, msg: "Some error occured."});
+    }
+});
+
 router.post('/create-post', async (req, res) => {
     const {content, title, category} = req.body;
     let em;
@@ -32,7 +43,6 @@ router.post('/create-post', async (req, res) => {
 
 router.get('/show-posts', async (req, res) => {
         const posts = await Blog.find({createdBy: "mano.sriram0@gmail.com"});
-        console.log(posts);
         return res.json({posts});
 });
 
