@@ -14,9 +14,11 @@ router.post('/get-post', async (req, res) => {
 });
 
 router.post('/create-post', async (req, res) => {
-    const {content, title, category} = req.body;
+    const {title, category} = req.body;
+    const content = req.body.content.cont;
     let em;
 
+    console.log(content);
     if (!content || !title || !category)
         return res.json({scs: false, msg: "Fill all fields"});
 

@@ -79,10 +79,9 @@ a {
 }
 
 #two {
-    text-align: center;
-    float: right;
+    text-align: left;
     font-family: 'Josefin Sans', sans-serif;
-    margin-right: 15vw;
+    margin-left: 15vw;
 }
 
 #nav {
@@ -113,16 +112,19 @@ a {
     cursor: pointer;
 }
 
+textarea {
+    font-size: 15px;
+}
+
 @media only screen and (max-width: 600px) {
     #prop {
         display: none;
     }
-    #one, #two {
-        margin: 0;
+    #when {
         text-align: left;
         float: none;
     }
     #tle {
-        font-size:1.9vh;
+        font-size:1.5vh;
     }
 }

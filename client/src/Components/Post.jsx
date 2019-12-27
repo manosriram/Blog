@@ -43,7 +43,7 @@ const Post = props => {
         <>
         <Navbar showPosts={true} about={true} Git={true} />
         <div id="container">
-        <Markdown source={realContent} escapeHtml={false}/>
+        <Markdown source={realContent.toString('html')} escapeHtml={false}/>
         </div>
         </>
     )

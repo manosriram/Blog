@@ -47,6 +47,9 @@ const Create = () => {
     const [cat, setCat] = useState("");
     const [scs, Setscs] = useState(false);
     const [now, setNow] = useState("All");
+    let [cont, setCont] = useState("");
+
+    const [value, setValue] = useState("**Hello world!!!**");
 
     const fetchUser = async () => {
         const resp = await userStat();
@@ -61,27 +64,28 @@ const Create = () => {
         setT({...titl, titl: e.target.value});
     };
 
+    const handleEditorChange = e => {
+        console.log(e.target.value);
+        setCont({...cont, cont:e.target.value});
+    };
+
     const handleChange = event => {
         setCat(event.target.value);
         setNow(event.target.value);
     };
 
-    const handleFroalaChange = () => {
-        let el = document.querySelector(".fr-element fr-view");
-        console.log(el);
-    };
-
     const fetchNThrow = async e => {
         e.preventDefault();
 
-        let text = document.querySelector(".fr-element.fr-view").innerHTML;
+        let wrap = `<div>${cont.toString()}</div>`;
+
         const resp = await fetch("/blog/create-post", {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({content: text, title:titl.titl, category: cat})
+            body: JSON.stringify({content: cont, title:titl.titl, category: cat})
         });
         const data = await resp.json();
         setMsg(data.msg);
@@ -113,11 +117,9 @@ const Create = () => {
         <br/>
         <br/>
 
-        <FroalaEditor
-        tag='textarea'
-        options={options}
-        />
+        <textarea id="tarea" rows="25" cols="150" tag='textarea' onChange={handleEditorChange}/>
 
+        <br />
         <br />
         <Button variant="contained" color="primary" onClick={fetchNThrow}>
         Post

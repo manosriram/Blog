@@ -90,24 +90,6 @@ const Show = props => {
 
         <br />
         {posts.map((el, ind) => {
-            if (!(ind & 1)) {
-                return(
-                    <>
-                    <div id="one">
-                    <div id="when">
-                    <time>{moment(el.createdOn).format("MMMM D, YYYY")}</time>
-                    &nbsp;
-                    <span>»</span>
-                    &nbsp;
-                    <a id="tle" onClick={() => openPost(el._id)}>{el.title}</a>
-                    <span>[{el.category}]</span>
-                    <br />
-                    <br />
-                    </div>
-                    </div>
-                    </>
-                );
-            } else {
                 return(
                     <>
                     <div id="two">
@@ -125,8 +107,7 @@ const Show = props => {
                     </>
                 );
             }
-        })
-        }
+        )}
         </div>
         </>
     )
