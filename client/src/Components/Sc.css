@@ -1,5 +1,16 @@
 * {
   outline: none;
+  text-align: left;
+}
+pre {
+  background: white;
+}
+code,
+pre,
+div {
+  white-space: initial;
+  font-family: 'Inconsolata', monospace;
+  font-size: 1.1em;
 }
 a {
   color: rgb(0, 0, 255);
@@ -8,7 +19,6 @@ a {
 #when a:hover {
   text-decoration: underline;
 }
-#frm,
 #spin {
   outline: none;
   margin: auto;
@@ -39,6 +49,16 @@ a {
 #frm {
   text-align: center;
   margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  position: absolute;
+}
+
+#frm .global-flash-success,
+#frm .global-flash-failure {
+  text-align: center;
+  margin: auto;
 }
 
 #contentTitle {
@@ -47,7 +67,12 @@ a {
 }
 
 #title {
-  font-size: 2.5vh;
+  font-size: 1.5em;
+  width: 50%;
+}
+
+#title::placeholder {
+  text-align: center;
 }
 
 .global-flash-success {
@@ -76,14 +101,15 @@ a {
 
 #one {
   text-align: center;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   float: left;
   margin-left: 10vw;
 }
 
-#two {
+#two,
+#contn {
   text-align: left;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   margin-left: 15vw;
 }
 
@@ -103,7 +129,7 @@ a {
 
 #when {
   font-size: 11px;
-  font-family: Menlo, "Bitstream Vera Sans Mono", "Lucida Console", monospace;
+  font-family: Menlo, 'Bitstream Vera Sans Mono', 'Lucida Console', monospace;
 }
 
 #reddit:hover {
@@ -115,15 +141,21 @@ a {
   cursor: pointer;
 }
 
+#tarea {
+  height: auto;
+  width: 80vw;
+  height: 40vh;
+}
+
 textarea {
   font-size: 15px;
 }
 
-#oops {
+#inCont #oops p {
   margin: auto;
   text-align: center;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 3em;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 2em;
 }
 
 @media only screen and (min-width: 768px) {
@@ -141,15 +173,47 @@ textarea {
 }
 
 @media only screen and (max-width: 414px) {
-  #two {
-    margin: 0;
+  #two, #contn{
+    margin-left: 5px;
     text-align: center;
   }
   #tle {
     font-size: 1.9vh;
   }
+  #nav {
+      margin: 0;
+      font-size: 2.5vh;
+      }
   #inCont {
     padding: 0;
     margin: 0;
+  }
+}
+
+@media only screen and (max-height: 414px) {
+  #tle,
+  #nav {
+    font-size: 1em;
+  }
+  #inCont {
+    padding: 0;
+    margin: 0;
+  }
+
+  #tarea {
+    width: 90vw;
+    height: 30vh;
+  }
+
+  #frm {
+      padding-top: 10%;
+  }
+  textarea {
+    font-size: 10px;
+  }
+
+  #title {
+    font-size: 1em;
+    width: 50%;
   }
 }

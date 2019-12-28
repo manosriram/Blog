@@ -15,7 +15,10 @@ const Projects = () => {
           found on my <a href="https://www.github.com/manosriram">Github</a>{" "}
           profile.
         </p>
+        <br />
         <h1>Projects</h1>
+        <br />
+        <br />
         <p>
           <a href="https://www.github.com/manosriram/Data-Structures">
             Data Structures
@@ -57,6 +60,10 @@ const Projects = () => {
           <a href="https://github.com/manosriram/ytdown">Youtube Downloader</a>
           {"  "}- Simple tool to download Youtube Videos.
         </p>
+      <br />
+      <h1>Tools</h1>
+      <br />
+      <br />
         <p>
           <a href="https://github.com/manosriram/Dot-Files">Dot Files</a>
           {"  "}- My Dot Files for iTerm2 and Vim 8.1.1312

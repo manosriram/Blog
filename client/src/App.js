@@ -6,6 +6,7 @@ import Show from "./Components/Show";
 import Projects from "./Components/Projects";
 import About from "./Components/About";
 import Post from "./Components/Post";
+import "./App.css";
 
 const App = () => {
     return (
