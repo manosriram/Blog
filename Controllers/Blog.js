@@ -59,7 +59,6 @@ router.post('/create-post', async (req, res) => {
 
 router.get('/show-posts', async (req, res) => {
     const posts = await Blog.find({createdBy: "mano.sriram0@gmail.com"});
-    console.log(posts);
     return res.json({posts});
 });
 

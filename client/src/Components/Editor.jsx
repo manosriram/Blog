@@ -1,25 +1,25 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import Editor from 'for-editor'
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import Editor from "for-editor";
 
 class FEditor extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      value: ''
-    }
+      value: ""
+    };
   }
 
   handleChange(value) {
     this.setState({
       value
-    })
+    });
     console.log(this.state.value);
   }
 
   render() {
-    const { value } = this.state
-    return <Editor value={value} onChange={() => this.handleChange()} />
+    const { value } = this.state;
+    return <Editor value={value} onChange={() => this.handleChange()} />;
   }
 }
 

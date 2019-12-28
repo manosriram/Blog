@@ -1,151 +1,153 @@
 * {
-    outline: none;
+  outline: none;
 }
 a {
-    color: rgb(0, 0, 255);
-    text-decoration: none;
+  color: rgb(0, 0, 255);
+  text-decoration: none;
 }
 #when a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-#frm, #spin {
-    outline: none;
-    margin: auto;
-    text-align: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+#frm,
+#spin {
+  outline: none;
+  margin: auto;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 
-    font-size: 20px;
-    padding: 5px;
-    z-index: 100;
+  font-size: 20px;
+  padding: 5px;
+  z-index: 100;
 }
 #prop {
-    color: white;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
+  color: white;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
 }
 #prop:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 #frm {
-    text-align: center;
-    margin: auto;
+  text-align: center;
+  margin: auto;
 }
 
 #title {
-    width: 50vw;
-    border: 1px solid black;
-    height: 4vh;
-    font-size: 2.5vh;
+  width: 50vw;
+  border: 1px solid black;
+  height: 4vh;
+  font-size: 2.5vh;
 }
 
 .global-flash-success {
-    color: green;
+  color: green;
 }
 
 .global-flash-failure {
-    color: red;
+  color: red;
 }
 
 .innerContent {
-    margin: auto;
-    width: 60%;
-    border: 1px solid black;
+  margin: auto;
+  width: 60%;
+  border: 1px solid black;
 }
 
 #tle {
-    font-size: 15.5px;
-    padding-right: 15px;
+  font-size: 15.5px;
+  padding-right: 15px;
 }
 
 #contn {
-    margin: auto;
-    text-align: center;
+  margin: auto;
+  text-align: center;
 }
 
 #one {
-    text-align: center;
-    font-family: 'Josefin Sans', sans-serif;
-    float: left;
-    margin-left: 10vw;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  float: left;
+  margin-left: 10vw;
 }
 
 #two {
-    text-align: left;
-    font-family: 'Josefin Sans', sans-serif;
-    margin-left: 15vw;
+  text-align: left;
+  font-family: "Josefin Sans", sans-serif;
+  margin-left: 15vw;
 }
 
 #nav {
-    padding-top: 15px;
+  padding-top: 15px;
 }
 
 #reddit {
-    border-bottom: none;
-    font-family: Verdana, Helvetica, sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: firebrick;
-    font-size: 0.7em;
-    text-decoration: none;
+  border-bottom: none;
+  font-family: Verdana, Helvetica, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: firebrick;
+  font-size: 0.7em;
+  text-decoration: none;
 }
 
 #when {
-    font-size: 11px;
-    font-family: Menlo, 'Bitstream Vera Sans Mono', 'Lucida Console', monospace;
+  font-size: 11px;
+  font-family: Menlo, "Bitstream Vera Sans Mono", "Lucida Console", monospace;
 }
 
 #reddit:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 #tle:hover {
-    color: orange;
-    cursor: pointer;
+  color: orange;
+  cursor: pointer;
 }
 
 textarea {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 #oops {
-    margin: auto;
-    text-align: center;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 3em;
+  margin: auto;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 3em;
 }
 
 @media only screen and (min-width: 768px) {
-    #slct, #nav{
-       font-size: 2vh; 
-    }
-    time, span {
-       font-size: 1.5vh; 
-    }
-    #tle {
-        font-size: 2vh;
-    }
+  #slct,
+  #nav {
+    font-size: 2vh;
+  }
+  time,
+  span {
+    font-size: 1.5vh;
+  }
+  #tle {
+    font-size: 2vh;
+  }
 }
 
 @media only screen and (max-width: 414px) {
-    #two {
-        margin: 0;
-        text-align: center;
-    }
-    #tle {
-        font-size: 1.9vh;
-    }
-    #inCont {
-        padding: 0;
-        margin: 0;
-    }
-
+  #two {
+    margin: 0;
+    text-align: center;
+  }
+  #tle {
+    font-size: 1.9vh;
+  }
+  #inCont {
+    padding: 0;
+    margin: 0;
+  }
 }

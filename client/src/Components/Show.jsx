@@ -1,27 +1,32 @@
-import {useHistory} from "react-router-dom";
-import CircularProgress from '@material-ui/core/CircularProgress';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from "react-router-dom";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import { makeStyles } from "@material-ui/core/styles";
 import "./Sc.css";
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 const moment = require("moment");
 
 const useStyles = makeStyles(theme => ({
     formControl: {
         margin: theme.spacing(1),
-        minWidth: 120,
+        minWidth: 120
     },
     selectEmpty: {
-        marginTop: theme.spacing(2),
-    },
+        marginTop: theme.spacing(2)
+    }
 }));
 
 const Show = props => {
-    const categories = ["Announcements", "Data-Structures", "Algorithms", "Chill ⏸"];
+    const categories = [
+        "Announcements",
+        "Data-Structures",
+        "Algorithms",
+        "Chill ⏸"
+    ];
     let history = useHistory();
     const classes = useStyles();
     const [posts, setPosts] = useState([]);
@@ -66,14 +71,26 @@ const Show = props => {
 
     return (
         <>
-        <Navbar name="Show Posts" showPosts={false} Git={true}/>
+        <Navbar name="Show Posts" showPosts={false} Git={true} />
         <div id="inCont">
         <div id="contn">
         <FormControl className={classes.formControl}>
-        <Select id="slct2" value={now} onChange={handleChange} displayEmpty className={classes.selectEmpty}>
-        <MenuItem value="All" id="slct">All</MenuItem>
+        <Select
+        id="slct2"
+        value={now}
+        onChange={handleChange}
+        displayEmpty
+        className={classes.selectEmpty}
+        >
+        <MenuItem value="All" id="slct">
+        All
+        </MenuItem>
         {categories.map((el, ind) => {
-            return <MenuItem id="slct" value={el}>{el}</MenuItem>
+            return (
+                <MenuItem id="slct" value={el}>
+                {el}
+                </MenuItem>
+            );
         })}
         </Select>
         <FormHelperText id="slct">Filter Category</FormHelperText>
@@ -83,19 +100,21 @@ const Show = props => {
         <br />
         {!posts.length ? (
             <div id="oops">
-                <p>Oops! Nothing here...</p>
+            <p>Oops! Nothing here...</p>
             </div>
-        ) :
-        posts.map((el, ind) => {
-                return(
+        ) : (
+            posts.map((el, ind) => {
+                return (
                     <>
                     <div id="two" key={ind}>
-                    <div id="when" key={ind+1}>
+                    <div id="when" key={ind + 1}>
                     <time>{moment(el.createdOn).format("MMMM D, YYYY")}</time>
                     &nbsp;
                     <span>»</span>
                     &nbsp;
-                    <a id="tle" onClick={() => openPost(el._id, el.title)}>{el.title}</a>
+                    <a id="tle" onClick={() => openPost(el._id, el.title)}>
+                    {el.title}
+                    </a>
                     <span>[{el.category}]</span>
                     <br />
                     <br />
@@ -103,11 +122,11 @@ const Show = props => {
                     </div>
                     </>
                 );
-            }
+            })
         )}
         </div>
         </>
-    )
+    );
 };
 
 export default Show;
