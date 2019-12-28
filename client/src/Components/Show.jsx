@@ -1,3 +1,4 @@
+import "./Loader.css";
 import { useHistory } from "react-router-dom";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -34,6 +35,7 @@ const Show = props => {
     const [allPosts, setAllPosts] = useState([]);
     const [now, setNow] = useState("");
     const [postName, setPostName] = useState("");
+    const [spin, isSpinning] = useState(false);
 
     const openPost = (id, name) => {
         setPostID(id);
@@ -57,9 +59,11 @@ const Show = props => {
         data = data.posts;
         setPosts(data);
         setAllPosts(data);
+        isSpinning(false);
     };
 
     React.useEffect(() => {
+        isSpinning(true);
         fetchData();
     }, []);
 
@@ -72,6 +76,8 @@ const Show = props => {
     return (
         <>
         <Navbar name="Show Posts" showPosts={false} Git={true} />
+        {spin ? <div className="loader"></div> : (
+        <>
         <div id="inCont">
         <div id="contn">
         <FormControl className={classes.formControl}>
@@ -125,6 +131,8 @@ const Show = props => {
             })
         )}
         </div>
+        </>
+        )}
         </>
     );
 };

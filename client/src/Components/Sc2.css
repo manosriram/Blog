@@ -1,81 +1,107 @@
+h1 {
+    display: inline;
+}
 #container a {
-  color: rgb(0, 0, 255);
+    color: rgb(0, 0, 255);
 }
 #container a:hover {
-  color: orange;
+    color: orange;
+    text-decoration: underline;
 }
+
+#contentTitle {
+    padding-right: 2px;
+  font-family: "Josefin Sans", sans-serif;
+    width: 50vw;
+    height: 2vh;
+}
+
 #container {
-  font-family: "PT Serif", serif;
-  display: block;
-  line-height: 25px;
-  margin-left: 20vw;
-  margin-right: 25vw;
-  padding: 0;
-  padding-top: 10vh;
-  padding-bottom: 8vh;
-  font-size: 15px;
-  text-align: left;
+    font-family: "PT Serif", serif;
+    display: block;
+    line-height: 25px;
+    margin-left: 20vw;
+    margin-right: 25vw;
+    padding: 0;
+    padding-top: 10vh;
+    padding-bottom: 8vh;
+    font-size: 15px;
+    text-align: left;
 }
 #reddit {
-  border-bottom: none;
-  font-family: Verdana, Helvetica, sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: firebrick;
-  font-size: 0.7em;
-  text-decoration: none;
-  cursor: pointer;
+    border-bottom: none;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: firebrick;
+    font-size: 0.7em;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 #footer {
-  position: fixed;
-  text-align: center;
-  font-family: "PT Serif", serif;
-  font-size: 15px;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+    position: fixed;
+    text-align: center;
+    font-family: "PT Serif", serif;
+    font-size: 15px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 #prog {
-  top: 50%;
-  left: 50%;
-  position: absolute;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+}
+
+#container p {
+    font-size: 2vh;
 }
 
 @media only screen and (min-width: 768px) {
-  #slct,
-  #nav {
-    font-size: 2vh;
-  }
-  time,
-  span {
-    font-size: 1.5vh;
-  }
+    #container {
+        margin-left: 10vw;
+        margin-right: 15vw;
+    }
+
+    #container p {
+        font-size: 1.8vh;
+    }
+
+    #slct,
+    #nav {
+        font-size: 2vh;
+    }
+
+    time,
+    span {
+        font-size: 1.5vh;
+    }
 }
 
 @media only screen and (max-width: 414px) {
-  span {
-    font-size: 2.2vh;
-  }
-  #ctle {
-    font-size: 4vh;
-  }
-  #editorContent {
-    font-size: 2.5vh;
-  }
-  #container {
-    margin-left: 10vw;
-    margin-right: 15vw;
-  }
-  #two {
-    margin: 0;
-    text-align: center;
-  }
-  #tle {
-    font-size: 1vh;
-  }
-  #inCont {
-    padding: 0;
-    margin: 0;
-  }
+    span {
+        font-size: 1.6vh;
+    }
+    #ctle {
+        font-size: 4vh;
+    }
+    #editorContent {
+        font-size: 2.5vh;
+    }
+    #container {
+        margin-left: 10vw;
+        margin-right: 15vw;
+    }
+    #two {
+        margin: 0;
+        text-align: center;
+    }
+    #tle {
+        font-size: 1vh;
+    }
+    #inCont {
+        padding: 0;
+        margin: 0;
+    }
 }

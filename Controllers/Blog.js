@@ -46,7 +46,8 @@ router.post('/create-post', async (req, res) => {
             title,
             content,
             category,
-            createdBy: em
+            createdBy: em,
+            createdOn: Date.now()
         });
 
         blg.save();
