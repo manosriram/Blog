@@ -37,7 +37,7 @@ const Create = () => {
   let [cont, setCont] = useState('');
 
   const fetchUser = async () => {
-    const resp = await userStat();
+    const resp = await userStat;
     checkUser(resp.scs);
   };
 

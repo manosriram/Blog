@@ -25,7 +25,7 @@ const Post = props => {
   const [postID, setPostID] = useState('');
 
   const fetchUser = async () => {
-    const resp = await userStat();
+    const resp = await userStat;
     setLogStat(resp.scs);
   };
 
