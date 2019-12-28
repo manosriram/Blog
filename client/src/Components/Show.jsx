@@ -1,7 +1,5 @@
 import {useHistory} from "react-router-dom";
-import Post from "./Post";
 import CircularProgress from '@material-ui/core/CircularProgress';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
@@ -10,8 +8,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import "./Sc.css";
 import React, {useState} from 'react';
 import Navbar from "./Navbar";
-const dt = require("datejs");
-const userStat = require("./GetStat");
 const moment = require("moment");
 
 const useStyles = makeStyles(theme => ({
@@ -31,13 +27,12 @@ const Show = props => {
     const [posts, setPosts] = useState([]);
     const [postID, setPostID] = useState("");
     const [allPosts, setAllPosts] = useState([]);
-    const [cat, setCat] = useState([]);
-    const [age, setAge] = useState("");
-    const [now, setNow] = useState("Select filter");
-    const [spin, isSpinning] = useState(true);
+    const [now, setNow] = useState("");
+    const [postName, setPostName] = useState("");
 
-    const openPost = e => {
-        setPostID(e);
+    const openPost = (id, name) => {
+        setPostID(id);
+        setPostName(name.replace(" ", "-"));
     };
 
     const handleChange = event => {
@@ -61,42 +56,46 @@ const Show = props => {
 
     React.useEffect(() => {
         fetchData();
-        isSpinning(false);
     }, []);
 
     if (postID) {
-        history.push(`/post/${postID}`);
+        history.push(`/post/${postName}`, {
+            postID: postID
+        });
     }
 
-    var momentDate, jsD;
     return (
         <>
         <Navbar name="Show Posts" showPosts={false} Git={true}/>
         <div id="inCont">
         <div id="contn">
         <FormControl className={classes.formControl}>
-        <Select defaultValue={"Select Filter"} value={now} onChange={handleChange} displayEmpty className={classes.selectEmpty}>
-        <MenuItem value="All">All</MenuItem>
+        <Select id="slct2" value={now} onChange={handleChange} displayEmpty className={classes.selectEmpty}>
+        <MenuItem value="All" id="slct">All</MenuItem>
         {categories.map((el, ind) => {
-            return <MenuItem value={el}>{el}</MenuItem>
+            return <MenuItem id="slct" value={el}>{el}</MenuItem>
         })}
         </Select>
-        <FormHelperText>Filter Category</FormHelperText>
+        <FormHelperText id="slct">Filter Category</FormHelperText>
         </FormControl>
         </div>
-        {spin && <CircularProgress />}
-
         <br />
-        {posts.map((el, ind) => {
+        <br />
+        {!posts.length ? (
+            <div id="oops">
+                <p>Oops! Nothing here...</p>
+            </div>
+        ) :
+        posts.map((el, ind) => {
                 return(
                     <>
-                    <div id="two">
-                    <div id="when">
+                    <div id="two" key={ind}>
+                    <div id="when" key={ind+1}>
                     <time>{moment(el.createdOn).format("MMMM D, YYYY")}</time>
                     &nbsp;
                     <span>»</span>
                     &nbsp;
-                    <a id="tle" onClick={() => openPost(el._id)}>{el.title}</a>
+                    <a id="tle" onClick={() => openPost(el._id, el.title)}>{el.title}</a>
                     <span>[{el.category}]</span>
                     <br />
                     <br />

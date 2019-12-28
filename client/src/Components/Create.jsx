@@ -1,5 +1,4 @@
 import Show from "./Show";
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
@@ -7,7 +6,6 @@ import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 import React, {useState} from 'react';
 import Navbar from "./Navbar";
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import "./Sc.css";
 const userStat = require("./GetStat");
@@ -23,28 +21,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Create = () => {
-    const options = {
-        colorsButtons: ["colorsBack", "|", "-"],
-        fontFamilySelection: true,
-        fontFamily: {
-            'Arial,Helvetica,sans-serif': 'Font 1',
-            'Impact,Charcoal,sans-serif': 'Font 2',
-            'Tahoma,Geneva,sans-serif': 'Font 3'
-        }
-    };
     const classes = useStyles();
     const categories = ["Announcements", "Data-Structures", "Algorithms", "Chill ⏸"];
     const [isUser, checkUser] = useState(false);
-    const [ed, setEd] = useState("");
     const [titl, setT] = useState("");
     const [msg, setMsg] = useState("");
     const [cat, setCat] = useState("");
     const [scs, Setscs] = useState(false);
-    const [now, setNow] = useState("All");
+    const [now, setNow] = useState("");
     let [cont, setCont] = useState("");
-    const [unParsed, setUP] = useState("");
-
-    const [value, setValue] = useState("**Hello world!!!**");
 
     const fetchUser = async () => {
         const resp = await userStat();
@@ -71,9 +56,6 @@ const Create = () => {
 
     const fetchNThrow = async e => {
         e.preventDefault();
-
-        let wrap = `<div>${cont.toString()}</div>`;
-
         const resp = await fetch("/blog/create-post", {
             method: "POST",
             headers: {

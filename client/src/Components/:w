@@ -2,9 +2,11 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import {useHistory, useLocation} from "react-router-dom";
-import React, {useState, useEffect, useCallback} from 'react';
+import {useParams, useHistory, useLocation} from "react-router-dom";
+import React, {useState, useEffect} from 'react';
 import Navbar from "./Navbar";
 import "./Sc2.css";
 const DOMPurify = require("dompurify");
@@ -18,6 +20,7 @@ const Post = props => {
     
     let location = useLocation();
     let history = useHistory();
+    let {postName} = useParams();
     const [content, setContent] = useState({});
     const [realContent, setRContent] = useState("");
     const [spin, isSpinning] = useState(false);
@@ -46,7 +49,7 @@ const Post = props => {
             body: JSON.stringify({postID: postID})
         });
         const rec = await resp.json();
-        if (rec.scs) history.push("/showPosts");
+        history.push("/showPosts");
     };
 
     const fetchPost = async () => {
@@ -60,21 +63,17 @@ const Post = props => {
         });
         const postContent = await resp.json();
 
-        setRContent(DOMPurify.sanitize(postContent.postContent.content));
+        setRContent(postContent.postContent.content);
         setContent(postContent.postContent);
     };
-
-    const memorizeFetchPost = useCallback(() => {
-        fetchPost();
-    }, []);
 
     useEffect(() => {
         setPostID(location.state.postID);
         isSpinning(true);
         fetchUser();
-        memorizeFetchPost();
+        fetchPost();
         isSpinning(false);
-    }, [memorizeFetchPost, location.state.postID]);
+    }, []);
 
     if (logStat) {
         return (
@@ -83,7 +82,7 @@ const Post = props => {
             <div id="container">
             {spin ? <CircularProgress id="prog"/> : (
                 <>
-                <h1 id="title">{content.title}</h1> <span><a id="tle" onClick={handleClickOpen}>Delete</a></span>
+                <h1>{content.title}</h1> <span><a onClick={handleClickOpen} href="#">Delete</a></span>
                 <br />
                 <span>{moment(content.createdOn).format("MMMM D, YYYY, hh:mm a")}</span>
                 <br />
@@ -121,7 +120,7 @@ const Post = props => {
             <div id="container">
             {spin ? <CircularProgress id="prog"/> : (
                 <>
-                <h1 id="ctle">{content.title}</h1> 
+                <h1>{content.title}</h1> 
                 <span>{moment(content.createdOn).format("MMMM D, YYYY, hh:mm a")}</span>
                 <br />
                 <br />

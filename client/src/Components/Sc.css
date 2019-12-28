@@ -63,7 +63,7 @@ a {
 
 #tle {
     font-size: 15.5px;
-    padding-right: 15px;    
+    padding-right: 15px;
 }
 
 #contn {
@@ -116,15 +116,36 @@ textarea {
     font-size: 15px;
 }
 
-@media only screen and (max-width: 600px) {
-    #prop {
-        display: none;
+#oops {
+    margin: auto;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3em;
+}
+
+@media only screen and (min-width: 768px) {
+    #slct, #nav{
+       font-size: 2vh; 
     }
-    #when {
-        text-align: left;
-        float: none;
+    time, span {
+       font-size: 1.5vh; 
     }
     #tle {
-        font-size:1.5vh;
+        font-size: 2vh;
     }
+}
+
+@media only screen and (max-width: 414px) {
+    #two {
+        margin: 0;
+        text-align: center;
+    }
+    #tle {
+        font-size: 1.9vh;
+    }
+    #inCont {
+        padding: 0;
+        margin: 0;
+    }
+
 }

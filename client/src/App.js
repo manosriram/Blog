@@ -1,6 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import Navbar from "./Components/Navbar";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Admin from "./Components/Admin";
 import Create from "./Components/Create";
 import Show from "./Components/Show";

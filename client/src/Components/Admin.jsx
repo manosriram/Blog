@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import "./Sc.css";
-import AdminHome from "./AdminHome";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Create from "./Create";
 
@@ -36,7 +35,7 @@ const Admin = () => {
             body: JSON.stringify({data})
         });
         const resp2 = await resp.json();
-        if (resp2.scs == true)
+        if (resp2.scs === true)
             setHome(resp2.scs);
         else
             setMsg(resp2.msg);
@@ -62,7 +61,6 @@ const Admin = () => {
         {msg && <h3>{msg}</h3>}
         <TextField
         type="email"
-        id="outlined-error"
         label="Email Address"
         variant="outlined"
         name="email"
@@ -72,7 +70,6 @@ const Admin = () => {
         &nbsp;
         <TextField
         type="password"
-        id="outlined-error"
         label="Password"
         variant="outlined"
         name="password"
