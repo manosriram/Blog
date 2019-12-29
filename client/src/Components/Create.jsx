@@ -37,8 +37,8 @@ const Create = () => {
   let [cont, setCont] = useState('');
 
   const fetchUser = async () => {
-    const resp = await userStat;
-    checkUser(resp.scs);
+      const resp = await fetch("/auth/checkStat");
+      checkUser(resp.status === 404 ? false : true);
   };
 
   React.useEffect(() => {

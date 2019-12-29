@@ -10,9 +10,9 @@ router.get('/logout', (req, res) => {
 
 router.get('/checkStat', (req, res) => {
     if (req.session.user)
-        return res.json({scs: true, user: req.session.user});
+        return res.status(200).json({scs: true, user: req.session.user});
     else
-        return res.json({scs: false});
+        return res.status(404).json({scs: false});
 });
 
 router.post("/enterAdmin", async (req, res) => {
