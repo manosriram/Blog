@@ -2,4 +2,4 @@
 Personal Blog-App Website ⚡️.
 ```
 
-**<a href="manosriram.xyz">Mano Sriram</a>**
+**<a href="http://manosriram.xyz/">Mano Sriram</a>**
