@@ -99,7 +99,7 @@ const Show = props => {
                   </MenuItem>
                   {categories.map((el, ind) => {
                     return (
-                      <MenuItem id="slct" value={el}>
+                      <MenuItem id="slct" value={el} key={ind+1}>
                         {el}
                       </MenuItem>
                     );
@@ -125,7 +125,7 @@ const Show = props => {
                         &nbsp;
                         <span>»</span>
                         &nbsp;
-                        <a id="tle" onClick={() => openPost(el._id, el.title)}>
+                        <a id="tle" key={ind+1} onClick={() => openPost(el._id, el.title)}>
                           {el.title}
                         </a>
                         <span>[{el.category}]</span>

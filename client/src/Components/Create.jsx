@@ -8,7 +8,6 @@ import React, {useState} from 'react';
 import Navbar from './Navbar';
 import Button from '@material-ui/core/Button';
 import './Sc.css';
-const userStat = require('./GetStat');
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -37,8 +36,9 @@ const Create = () => {
   let [cont, setCont] = useState('');
 
   const fetchUser = async () => {
-      const resp = await fetch("/auth/checkStat");
-      checkUser(resp.status === 404 ? false : true);
+    const resp = await fetch('/auth/checkStat');
+    const data = await resp.json();
+    checkUser(data.scs);
   };
 
   React.useEffect(() => {
@@ -67,7 +67,11 @@ const Create = () => {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({content: cont, title: titl.titl, category: cat}),
+      body: JSON.stringify({
+        content: cont,
+        title: titl.titl,
+        category: cat,
+      }),
     });
     const data = await resp.json();
     setMsg(data.msg);

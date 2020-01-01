@@ -6,8 +6,7 @@ const Navbar = (props, props1) => {
     let history = useHistory();
 
     const logout = async e => {
-        console.log("123");
-        const rex = await fetch("/auth/logout");
+        await fetch("/auth/logout");
         history.push("/");
     };
 
@@ -21,7 +20,7 @@ const Navbar = (props, props1) => {
         &nbsp; &nbsp;
         {props.showPosts && (
             <a href="/show-posts" id="reddit">
-            Show-Posts
+            Home
             </a>
         )}
         &nbsp; &nbsp;

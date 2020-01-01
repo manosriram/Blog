@@ -11,7 +11,6 @@ import './Sc2.css';
 const DOMPurify = require('dompurify');
 const Markdown = require('react-markdown');
 const moment = require('moment');
-const userStat = require('./GetStat');
 
 const Post = props => {
   const [open, setOpen] = React.useState(false);
@@ -25,8 +24,9 @@ const Post = props => {
   const [postID, setPostID] = useState('');
 
   const fetchUser = async () => {
-    const resp = await userStat;
-    setLogStat(resp.scs);
+    const resp = await fetch('/auth/checkStat');
+    const data = await resp.json();
+    setLogStat(data.scs);
   };
 
   const handleClickOpen = () => setOpen(true);
