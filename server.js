@@ -20,5 +20,9 @@ app.use(bp.json());
 app.use("/auth", require("./Controllers/Auth"));
 app.use("/blog", require("./Controllers/Blog"));
 
+app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build/index.html"), err => console.log(err));
+});
+
 app.listen(PORT, () => console.log(`Server at ${PORT}`));
 module.exports = app;

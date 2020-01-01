@@ -1,3 +1,4 @@
+import InputLabel from '@material-ui/core/InputLabel';
 import './Loader.css';
 import {useHistory} from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -82,8 +83,11 @@ const Show = props => {
         <>
           <div id="inCont">
             <div id="contn">
-            <br />
+              <br />
               <FormControl className={classes.formControl}>
+                  <InputLabel id="demo-controlled-open-select-label">
+                    Category
+                  </InputLabel>
                 <Select
                   id="slct2"
                   value={now}
@@ -101,7 +105,6 @@ const Show = props => {
                     );
                   })}
                 </Select>
-                <FormHelperText id="slct">Filter Category</FormHelperText>
               </FormControl>
             </div>
             <br />
