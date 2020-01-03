@@ -138,6 +138,7 @@ const Create = () => {
       </form>
       <br />
       <br />
+      <h3 id="frm">Preview Window.</h3>
       <div id="previewContent">
         <Markdown source={cont.cont} escapeHtml={false} />
       </div>

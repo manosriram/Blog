@@ -28,6 +28,13 @@ h1 {
   padding-bottom: 8vh;
   font-size: 15px;
   text-align: left;
+  width: 80%;
+  word-break: break-word;
+}
+#container pre {
+  word-break: break-all;
+  background: beige;
+  width: auto;
 }
 #reddit {
   border-bottom: none;
@@ -97,11 +104,17 @@ h1 {
     font-size: 4vh;
   }
   #editorContent {
-    font-size: 2.5vh;
+    font-size: 1.5vh;
   }
   #container {
+    overflow: scroll;
+    clear: both;
     margin-left: 10vw;
     margin-right: 15vw;
+    word-break: break-word;
+  }
+  #container #editorContent {
+    word-break: break-word;
   }
   #two {
     margin: 0;
