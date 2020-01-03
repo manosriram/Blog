@@ -1,3 +1,4 @@
+import { Remarkable } from 'remarkable';
 import './Loader.css';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Button from '@material-ui/core/Button';
@@ -44,6 +45,11 @@ const Post = props => {
     });
     const rec = await resp.json();
     if (rec.scs) history.push('/showPosts');
+  };
+
+  const contentMP = () => {
+    const md = new Remarkable('full', {breaks: false});
+    return {__html: md.render(realContent)};
   };
 
   const fetchPost = async () => {

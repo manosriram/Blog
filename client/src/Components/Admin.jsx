@@ -55,8 +55,7 @@ const Admin = () => {
 
       {!loading && (
         <form
-          id="frm"
-          action=""
+          id="frm1"
           onChange={handleChange}
           onSubmit={handleSubmit}
         >

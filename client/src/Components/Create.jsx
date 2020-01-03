@@ -8,6 +8,7 @@ import React, {useState} from 'react';
 import Navbar from './Navbar';
 import Button from '@material-ui/core/Button';
 import './Sc.css';
+const Markdown = require('react-markdown');
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -50,7 +51,6 @@ const Create = () => {
   };
 
   const handleEditorChange = e => {
-    console.log(e.target.value);
     setCont({...cont, cont: e.target.value});
   };
 
@@ -88,6 +88,7 @@ const Create = () => {
         showPosts={true}
         logged={true}
       />
+      <br />
       <form id="frm" method="POST">
         {scs && <h3 className="global-flash-success">{msg}</h3>}
         {!scs && <h3 className="global-flash-failure">{msg}</h3>}
@@ -123,8 +124,8 @@ const Create = () => {
 
         <textarea
           id="tarea"
-          rows="25"
-          cols="150"
+          rows="70"
+          cols="30"
           tag="textarea"
           onChange={handleEditorChange}
         />
@@ -135,6 +136,13 @@ const Create = () => {
           Post
         </Button>
       </form>
+      <br />
+      <br />
+      <div id="previewContent">
+        <Markdown source={cont.cont} escapeHtml={false} />
+      </div>
+      <br />
+      <br />
     </>
   );
 };
