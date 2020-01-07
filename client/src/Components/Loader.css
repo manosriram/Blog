@@ -5,7 +5,8 @@
 }
 
 .loader {
-  color: #ffffff;
+  color: black;
+  background: black;
   font-size: 9px;
   text-indent: -99999em;
   margin: 55px auto;
@@ -27,7 +28,6 @@
 .loader:before {
   width: 5.2em;
   height: 10.2em;
-  background: #0dc5c1;
   border-radius: 10.2em 0 0 10.2em;
   top: -0.1em;
   left: -0.1em;
@@ -40,7 +40,7 @@
 .loader:after {
   width: 5.2em;
   height: 10.2em;
-  background: #0dc5c1;
+  background: white;
   border-radius: 0 10.2em 10.2em 0;
   top: -0.1em;
   left: 4.9em;
@@ -71,4 +71,3 @@
     transform: rotate(360deg);
   }
 }
-
