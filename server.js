@@ -1,4 +1,5 @@
 const express = require("express");
+const helmet = require("helmet");
 const app = express();
 require("dotenv").config();
 const bp = require("body-parser");
@@ -15,6 +16,7 @@ mongoose
   .then(() => console.log("MongoDB Connected !"))
   .catch(err => console.log(err));
 
+app.use(helmet());
 app.use(express.static(path.join(__dirname, "client/build")));
 app.use(session({secret:"mano1234", resave: false, saveUninitialized: true, maxAge: new Date(Date.now() + (30 * 86400 * 1000))}));
 app.use(bp.json());

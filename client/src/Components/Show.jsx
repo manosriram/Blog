@@ -39,6 +39,7 @@ const Show = props => {
   const openPost = (id, name) => {
     setPostID(id);
     setPostName(name.replace(' ', '-'));
+    setPostName(name.replace('/', '-'));
   };
 
   const handleChange = event => {
