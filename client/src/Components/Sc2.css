@@ -16,10 +16,6 @@ pre {
   word-break: keep-all;
 }
 
-#nav {
-  min-height: 100%;
-}
-
 #footer {
   position: fixed;
   left: 0;
@@ -83,6 +79,7 @@ pre {
 }
 #nav {
   min-height: 100%;
+  padding-left: 10pt;
 }
 
 #prog {
@@ -114,6 +111,9 @@ pre {
   time,
   span {
     font-size: 1.5vh;
+  }
+  #nav {
+  padding-left: 10pt;
   }
 }
 
@@ -156,5 +156,8 @@ pre {
   #inCont {
     padding: 0;
     margin: 0;
+  }
+  #nav {
+  padding-left: 10pt;
   }
 }

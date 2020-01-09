@@ -1,6 +1,4 @@
-import { Remarkable } from 'remarkable';
 import './Loader.css';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -9,7 +7,6 @@ import {useHistory, useLocation} from 'react-router-dom';
 import React, {useState, useEffect, useCallback} from 'react';
 import Navbar from './Navbar';
 import './Sc2.css';
-const DOMPurify = require('dompurify');
 const Markdown = require('react-markdown');
 const moment = require('moment');
 
@@ -45,11 +42,6 @@ const Post = props => {
     });
     const rec = await resp.json();
     if (rec.scs) history.push('/showPosts');
-  };
-
-  const contentMP = () => {
-    const md = new Remarkable('full', {breaks: false});
-    return {__html: md.render(realContent)};
   };
 
   const fetchPost = async () => {

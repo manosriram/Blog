@@ -15,23 +15,24 @@ const Navbar = (props, props1) => {
         {props.createPost && (
             <a href="/create-post" id="reddit">
             Create-Post
+
+        &nbsp; &nbsp;
             </a>
         )}
-        &nbsp; &nbsp;
         {props.showPosts && (
             <a href="/show-posts" id="reddit">
             Home
+        &nbsp; &nbsp;
             </a>
         )}
-        &nbsp; &nbsp;
         <a id="reddit" href="/projects">
         Projects
-        </a>
         &nbsp; &nbsp;
+        </a>
         <a id="reddit" href="/about">
         About
-        </a>
         &nbsp; &nbsp;
+        </a>
         {props.logged && (
             <a onClick={logout} id="reddit">
             Logout
