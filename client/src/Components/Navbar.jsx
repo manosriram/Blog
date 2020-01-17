@@ -41,7 +41,7 @@ const Navbar = (props, props1) => {
           Logout
         </a>
       )}
-      <footer id="footer">© Copyright 2019 by Mano Sriram </footer>
+      <footer id="footer">© Copyright 2020 by Mano Sriram </footer>
     </div>
   );
 };
