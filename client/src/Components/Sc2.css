@@ -24,6 +24,7 @@ pre {
   background: black;
   color: white;
   text-align: center;
+  padding-top: 3px;
 }
 
 #container a {
