@@ -14,3 +14,5 @@ cd ./client/
 npm install
 npm start
 ```
+
+> Browser automatically opens window in port 3000.
