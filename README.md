@@ -8,6 +8,8 @@ npm install
 nodemon (or) node server.js
 ```
 
+- Create a Directory Named DBase/ in this folder and a file url.js in it. It should export Mlab-URI and secret.
+
 - Install Frontend (React) Packages and start the server at Port 3000
 ```
 cd ./client/
