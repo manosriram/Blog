@@ -9,7 +9,6 @@ const db = require("./DBase/url").url;
 const path = require("path");
 const session = require("express-session");
 
-
 mongoose.set("useFindAndModify", false);
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true})

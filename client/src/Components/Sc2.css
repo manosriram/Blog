@@ -7,8 +7,8 @@ h1 {
   font-size: 40px;
 }
 
-ol {
-    font-size: 13pt;
+ol, h4 {
+  font-size: 13pt;
 }
 
 pre {
@@ -58,16 +58,33 @@ pre {
   width: 80%;
   word-break: break-word;
 }
-#container #editorContent p {
+#container #editorContent p,
+li {
   font-size: 15pt;
 }
+
 #container pre {
-  font-size: 13.5pt;
   word-break: break-all;
 
   background: #ececec;
   width: auto;
 }
+
+code {
+  font-size: 13pt;
+  word-break: break-word;
+
+  background: lightblue;
+  width: auto;
+  font-weight: 500;
+}
+
+#container pre code {
+  all: unset;
+  font-size: 18px;
+  font-weight: 500;
+}
+
 #reddit {
   border-bottom: none;
   font-family: Verdana, Helvetica, sans-serif;
@@ -114,7 +131,7 @@ pre {
     font-size: 1.5vh;
   }
   #nav {
-  padding-left: 10pt;
+    padding-left: 10pt;
   }
 }
 
@@ -159,6 +176,9 @@ pre {
     margin: 0;
   }
   #nav {
-  padding-left: 10pt;
+    padding-left: 10pt;
+  }
+  #container pre code, h4 {
+      font-size: 14px;
   }
 }
