@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 const About = () => {
   return (
     <>
-      <Navbar showPosts={true} Git={true} />
+      <Navbar showPosts={true} Git={true} cold={true}/>
       <div id="container">
         <p>
           Hello, My name is Mano Sriram and I'm an CS Undergraduate currently

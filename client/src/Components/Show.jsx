@@ -75,7 +75,7 @@ const Show = props => {
 
   return (
     <>
-      <Navbar name="Show Posts" showPosts={false} Git={true} />
+      <Navbar name="Show Posts" showPosts={false} Git={true} cold={true}/>
       {spin ? (
         <div className="loader"></div>
       ) : (

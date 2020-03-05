@@ -82,7 +82,7 @@ const Post = props => {
   if (logStat) {
     return (
       <>
-        <Navbar showPosts={true} about={true} Git={true} />
+        <Navbar showPosts={true} about={true} Git={true} cold={true} />
         <div id="container">
           {spin ? (
             <div className="loader"></div>
@@ -128,7 +128,7 @@ const Post = props => {
   } else {
     return (
       <>
-        <Navbar showPosts={true} about={true} Git={true} />
+        <Navbar showPosts={true} about={true} Git={true} cold={true} />
         <div id="container">
           {spin ? (
             <div className="loader"></div>

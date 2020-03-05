@@ -36,6 +36,14 @@ const Navbar = (props, props1) => {
         About
       </a>
       &nbsp; &nbsp;
+    {props.cold && (
+        <>
+          <a href="/cold-storage" id="reddit">
+            Cold-Storage
+          </a>
+          &nbsp; &nbsp;
+        </>
+    )}
       {props.logged && (
         <a onClick={logout} id="reddit">
           Logout

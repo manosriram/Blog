@@ -21,6 +21,7 @@ app.use(session({secret:"mano1234", resave: false, saveUninitialized: true, maxA
 app.use(bp.json());
 app.use("/auth", require("./Controllers/Auth"));
 app.use("/blog", require("./Controllers/Blog"));
+app.use("/cold", require("./Controllers/Cold"));
 
 /* Production Route.
 app.get("/*", (req, res) => {

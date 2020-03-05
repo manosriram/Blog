@@ -87,6 +87,7 @@ const Create = () => {
         createPost={false}
         showPosts={true}
         logged={true}
+        cold={true}
       />
       <br />
       <form id="frm" method="POST">

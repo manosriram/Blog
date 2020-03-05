@@ -6,6 +6,7 @@ import Show from "./Components/Show";
 import Projects from "./Components/Projects";
 import About from "./Components/About";
 import Post from "./Components/Post";
+import Cold from "./Components/Cold";
 import "./App.css";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/projects"><Projects /></Route>
         <Route path="/about"><About /></Route>
         <Route path="/post/:postName"><Post /></Route>
+        <Route path="/cold-storage"><Cold /></Route>
         <Route path="/"><Show /></Route>
         </Switch>
         </Router>
