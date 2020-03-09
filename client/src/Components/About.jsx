@@ -15,15 +15,18 @@ const About = () => {
         <p>
           I started this blog to help people by sharing my thoughts on Tech
           (mostly) and Non-Tech topics. Also, to use this platform to share
-          problem-sets that I faced .
+          problem-sets that I faced.
         </p>
+      <p>
+        This site was built by me for <strong>US</strong>. You can view it's source code <a href="https://github.com/manosriram/Blog">HERE</a>.
+      </p>
         <p>
           You can contact me via{' '}
           <a href="mailto:mano.sriram0@gmail.com">Email</a> ,{' '}
           <a href="https://www.linkedin.com/in/mano-sriram-866569166/">
             LinkedIN
           </a>{' '}
-          or <a href="https://www.quora.com/profile/Mano-Sriram-3">Quora</a>
+          or <a href="https://www.quora.com/profile/Mano-Sriram-3">Quora</a>.
         </p>
         <p>
           <a href="https://blogbucket.s3.ap-northeast-2.amazonaws.com/Resume.pdf">Resume</a>
