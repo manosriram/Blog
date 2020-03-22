@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Create = () => {
+const Create = props => {
   const classes = useStyles();
   const categories = [
     'Announcements',
@@ -101,6 +101,7 @@ const Create = () => {
           placeholder="Title"
           onChange={changeTitle}
           maxlength="32"
+          value={props.def ? props.def.title : ""}
         />
         <br />
         <FormControl className={classes.formControl}>
@@ -111,7 +112,7 @@ const Create = () => {
             displayEmpty
             className={classes.selectEmpty}>
             <MenuItem value="" selected>
-              Select One
+                  {props.def ? props.def.category : "Select One"}
             </MenuItem>
             {categories.map((el, ind) => {
               return <MenuItem value={el}>{el}</MenuItem>;
@@ -129,7 +130,9 @@ const Create = () => {
           cols="30"
           tag="textarea"
           onChange={handleEditorChange}
-        />
+        >
+      {props.def ? props.def.content : ""}
+      </textarea>
 
         <br />
         <br />

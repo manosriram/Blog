@@ -1,3 +1,4 @@
+import Create from "./Create";
 import './Loader.css';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -20,6 +21,8 @@ const Post = props => {
   const [realContent, setRContent] = useState('');
   const [spin, isSpinning] = useState(false);
   const [postID, setPostID] = useState('');
+  const [B, setB] = useState(false);
+  const [CN, setCN] = useState("");
 
   const fetchUser = async () => {
     const resp = await fetch('/auth/checkStat');
@@ -30,6 +33,11 @@ const Post = props => {
   const handleClickOpen = () => setOpen(true);
 
   const handleClose = () => setOpen(false);
+
+  const openUpdate = cont => {
+      setB(true);
+      setCN(cont);
+  };
 
   const deletePost = async () => {
     const resp = await fetch('/blog/delete-post', {
@@ -79,6 +87,8 @@ const Post = props => {
     }
   }, []);
 
+  if (B) return <Create def={CN}/>
+
   if (logStat) {
     return (
       <>
@@ -92,6 +102,12 @@ const Post = props => {
               <span>
                 <a id="tle" onClick={handleClickOpen}>
                   delete
+                </a>
+              </span>
+              {" "}
+              <span>
+                <a id="tle" onClick={() => openUpdate(content)}>
+                  update
                 </a>
               </span>
               <br />
