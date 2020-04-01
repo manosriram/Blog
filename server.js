@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 5000;
 const db = require("./DBase/url").url;
 const path = require("path");
 const session = require("express-session");
+const CTR = require("./Models/Counter");
 
 mongoose.set("useFindAndModify", false);
 mongoose
@@ -17,11 +18,12 @@ mongoose
 
 app.use(helmet());
 app.use(express.static(path.join(__dirname, "client/build")));
-app.use(session({secret:"mano1234", resave: false, saveUninitialized: true, maxAge: new Date(Date.now() + (30 * 86400 * 1000))}));
+app.use(session({secret:process.env.SCT, resave: false, saveUninitialized: true, maxAge: new Date(Date.now() + (30 * 86400 * 1000))}));
 app.use(bp.json());
 app.use("/auth", require("./Controllers/Auth"));
 app.use("/blog", require("./Controllers/Blog"));
 app.use("/cold", require("./Controllers/Cold"));
+app.use("/counter", require("./Controllers/Counter"));
 
 /* Production Route.
 app.get("/*", (req, res) => {
