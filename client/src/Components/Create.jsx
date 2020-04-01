@@ -101,7 +101,6 @@ const Create = props => {
           placeholder="Title"
           onChange={changeTitle}
           maxlength="32"
-          value={props.def ? props.def.title : ""}
         />
         <br />
         <FormControl className={classes.formControl}>
