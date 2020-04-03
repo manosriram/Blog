@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Blog = require("../Models/Blog");
-const CC = require("../Models/Counter");
 
 router.delete("/delete-post", async (req, res) => {
     const { postID } = req.body;
@@ -58,12 +57,6 @@ router.post("/create-post", async (req, res) => {
 });
 
 router.get("/show-posts", async (req, res) => {
-    const conn = req.connection.remoteAddress;
-    let CTR = await CC.findOne({"code": "GBL"});
-    if (!CTR.ctr.includes(conn))
-        CTR.ctr.push(conn);
-    CTR.save();
-
     const posts = await Blog.find({ createdBy: "mano.sriram0@gmail.com" }).sort(
         {
             createdOn: -1

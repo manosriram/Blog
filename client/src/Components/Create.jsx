@@ -100,7 +100,7 @@ const Create = props => {
           name="title"
           placeholder="Title"
           onChange={changeTitle}
-          maxlength="32"
+          maxlength="256"
         />
         <br />
         <FormControl className={classes.formControl}>

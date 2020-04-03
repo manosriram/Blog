@@ -8,7 +8,6 @@ const PORT = process.env.PORT || 5000;
 const db = require("./DBase/url").url;
 const path = require("path");
 const session = require("express-session");
-const CTR = require("./Models/Counter");
 
 mongoose.set("useFindAndModify", false);
 mongoose
@@ -23,7 +22,6 @@ app.use(bp.json());
 app.use("/auth", require("./Controllers/Auth"));
 app.use("/blog", require("./Controllers/Blog"));
 app.use("/cold", require("./Controllers/Cold"));
-app.use("/counter", require("./Controllers/Counter"));
 
 /* Production Route.
 app.get("/*", (req, res) => {
