@@ -32,6 +32,10 @@ const Projects = () => {
           classical and non-classical problems.{" "}
         </p>
         <p>
+          <a href="http://www.filebound.in">FileBound</a> (<a href="https://github.com/manosriram/filebound">Github</a>)
+          {"  "}- Web App through which users can upload files and share them via a time-bounded, encrypted link! 
+        </p>
+        <p>
           <a href="https://github.com/manosriram/Huffman-Compression">
             Huffman Compression
           </a>
