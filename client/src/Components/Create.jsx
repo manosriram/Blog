@@ -84,10 +84,7 @@ const Create = props => {
     <>
       <Navbar
         name="Create Post"
-        createPost={false}
-        showPosts={true}
-        logged={true}
-        cold={true}
+        createPost={isUser}
       />
       <br />
       <form id="frm" method="POST">

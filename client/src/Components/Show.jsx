@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import InputLabel from '@material-ui/core/InputLabel';
 import './Loader.css';
 import {useHistory} from 'react-router-dom';
@@ -35,11 +36,18 @@ const Show = props => {
   const [now, setNow] = useState('');
   const [postName, setPostName] = useState('');
   const [spin, isSpinning] = useState(false);
+  const [isUser, checkUser] = useState(false);
+
+  const fetchUser = async () => {
+    const resp = await fetch('/auth/checkStat');
+    const data = await resp.json();
+    checkUser(data.scs);
+  };
 
   const openPost = (id, name) => {
     setPostID(id);
-    setPostName(name.replace(' ', '-'));
-    setPostName(name.replace('/', '-'));
+    name = name.replace(' ', '-').replace('/', '-');
+    setPostName(name);
   };
 
   const handleChange = event => {
@@ -65,17 +73,23 @@ const Show = props => {
   React.useEffect(() => {
     isSpinning(true);
     fetchData();
+    fetchUser();
   }, []);
 
   if (postID) {
-    history.push(`/post/${postName}`, {
+    history.push(`/post/${postID}/${postName}`, {
       postID: postID,
     });
   }
 
   return (
     <>
-      <Navbar name="Show Posts" showPosts={false} Git={true} cold={true}/>
+    <Helmet>
+        <title>Home | Mano Sriram</title>
+        <meta name="description" content="Mano Sriram" />
+    </Helmet>
+
+      <Navbar name="Show Posts" createPost={isUser} />
       {spin ? (
         <div className="loader"></div>
       ) : (
@@ -122,7 +136,7 @@ const Show = props => {
                           {moment(el.createdOn).format('MMMM D, YYYY')}
                         </time>
                         &nbsp;
-                        <span>»</span>
+                        <span id="arrow">»</span>
                         &nbsp;
                         <a id="tle" key={ind+1} onClick={() => openPost(el._id, el.title)}>
                           {el.title}

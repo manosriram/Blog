@@ -64,10 +64,12 @@ li {
 }
 
 #container pre {
-  word-break: break-all;
-
-  background: #ececec;
   width: auto;
+  border-radius: 3px;
+  padding: 10px;
+  word-break: break-word;
+  background: #10161A;
+  color: white;
 }
 
 code {
@@ -182,5 +184,6 @@ code {
   }
   #container pre code, h4 {
       font-size: 14px;
+      font-weight: bolder;
   }
 }

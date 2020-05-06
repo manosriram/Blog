@@ -46,7 +46,7 @@ const Admin = () => {
 
   return (
     <>
-      <Navbar name="Admin" Git={true} />
+      <Navbar name="Admin" />
       {loading && (
         <div id="spin">
           <CircularProgress />

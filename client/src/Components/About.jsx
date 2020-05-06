@@ -1,11 +1,27 @@
 import React from 'react';
 import './Sc2.css';
 import Navbar from './Navbar';
+import { Helmet } from 'react-helmet';
 
 const About = () => {
+  const [isUser, checkUser] = React.useState(false);
+  const fetchUser = async () => {
+    const resp = await fetch('/auth/checkStat');
+    const data = await resp.json();
+    checkUser(data.scs);
+  };
+
+  React.useEffect(() => {
+    fetchUser();
+  }, []);
+
   return (
     <>
-      <Navbar showPosts={true} Git={true} cold={true}/>
+    <Helmet>
+        <title>About | Mano Sriram</title>
+        <meta name="description" content="About" />
+    </Helmet>
+      <Navbar createPost={isUser} />
       <div id="container">
         <p>
           Hello, My name is Mano Sriram and I'm an CS Undergraduate currently

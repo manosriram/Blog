@@ -1,11 +1,29 @@
 import React from "react";
 import Navbar from "./Navbar";
 import "./Sc2.css";
+import { Helmet } from 'react-helmet';
 
 const Projects = () => {
+  const [isUser, checkUser] = React.useState(false);
+
+  const fetchUser = async () => {
+    const resp = await fetch('/auth/checkStat');
+    const data = await resp.json();
+    checkUser(data.scs);
+  };
+
+  React.useEffect(() => {
+      fetchUser();
+  }, []);
+
   return (
     <>
-      <Navbar showPosts={true} Git={true} />
+    <Helmet>
+        <title>Projects | Mano Sriram</title>
+        <meta name="description" content="Mano Sriram" />
+    </Helmet>
+
+      <Navbar createPost={isUser} />
       <div id="container">
         <p>
           These are some of the projects I have worked (working) on. Most of the
@@ -70,7 +88,7 @@ const Projects = () => {
       <br />
         <p>
           <a href="https://github.com/manosriram/Dot-Files">Dot Files</a>
-          {"  "}- My Dot Files for iTerm2 and Vim 8.1.1312
+          {"  "}- My Dot Files for iTerm2 and Vim 8.2.654
         </p>
       </div>
     </>

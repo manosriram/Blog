@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import Create from "./Create";
 import './Loader.css';
 import Button from '@material-ui/core/Button';
@@ -17,6 +18,7 @@ const Post = props => {
 
   let location = useLocation();
   let history = useHistory();
+  const [postName, setPostName] = useState("");
   const [content, setContent] = useState({});
   const [realContent, setRContent] = useState('');
   const [spin, isSpinning] = useState(false);
@@ -49,7 +51,7 @@ const Post = props => {
       body: JSON.stringify({postID: postID}),
     });
     const rec = await resp.json();
-    if (rec.scs) history.push('/showPosts');
+    if (rec.scs) history.push('/');
   };
 
   const fetchPost = async () => {
@@ -60,7 +62,7 @@ const Post = props => {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({postID: location.state.postID}),
+        body: JSON.stringify({postID: location.pathname.split('/')[2]}),
       });
       const postContent = await resp.json();
 
@@ -68,7 +70,7 @@ const Post = props => {
       setContent(postContent.postContent);
       isSpinning(false);
     } catch (er) {
-      history.push('/showPosts');
+      history.push('/');
     }
   };
 
@@ -79,11 +81,11 @@ const Post = props => {
   useEffect(() => {
     try {
       isSpinning(true);
-      setPostID(location.state.postID);
-      fetchUser();
+      setPostName(location.pathname.split('/')[3]);
+      setPostID(location.pathname.split('/')[2]);
       memorizeFetchPost();
     } catch (er) {
-      history.push('/showPosts');
+      history.push('/');
     }
   }, []);
 
@@ -92,7 +94,11 @@ const Post = props => {
   if (logStat) {
     return (
       <>
-        <Navbar showPosts={true} about={true} Git={true} cold={true} />
+        <Helmet>
+            <title>{postName} | Mano Sriram</title>
+            <meta name="description" content={postName} />
+        </Helmet>
+        <Navbar createPost={true} />
         <div id="container">
           {spin ? (
             <div className="loader"></div>
@@ -144,7 +150,11 @@ const Post = props => {
   } else {
     return (
       <>
-        <Navbar showPosts={true} about={true} Git={true} cold={true} />
+        <Helmet>
+            <title>{postName} | Mano Sriram</title>
+            <meta name="description" content={postName} />
+        </Helmet>
+        <Navbar />
         <div id="container">
           {spin ? (
             <div className="loader"></div>

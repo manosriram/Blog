@@ -7,7 +7,6 @@ router.get('/logout', (req, res) => {
     return res.json({scs: true});
 });
 
-
 router.get('/checkStat', (req, res) => {
     if (req.session.user)
         return res.status(200).json({scs: true, user: req.session.user});

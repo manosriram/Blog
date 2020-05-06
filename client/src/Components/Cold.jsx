@@ -7,6 +7,7 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { useHistory } from "react-router-dom";
+import { Helmet } from 'react-helmet';
 
 const Cold = props => {
     let history = useHistory();
@@ -78,7 +79,11 @@ const Cold = props => {
     if (logStat) {
         return (
             <>
-                <Navbar showPosts={true} about={true} Git={true} />
+                <Helmet>
+                    <title>Cold-Storage | Mano Sriram</title>
+                    <meta name="description" content="Cold-Storage" />
+                </Helmet>
+                <Navbar createPost={logStat} />
                 {spin ? (
                     <div className="loader"></div>
                 ) : (
@@ -108,6 +113,7 @@ const Cold = props => {
                                 />
                             </form>
                             <hr />
+                            <br />
                         </div>
 
                         <Dialog
@@ -164,6 +170,10 @@ const Cold = props => {
     } else {
         return (
             <>
+                <Helmet>
+                    <title>Cold-Storage | Mano Sriram</title>
+                    <meta name="description" content="Cold-Storage" />
+                </Helmet>
                 <Navbar showPosts={true} about={true} Git={true} cold={false} />
                 <div id="store">
                     <h2 id="usefulLinks">Useful Links for References.</h2>
