@@ -254,7 +254,7 @@ textarea {
         display: none;
     }
     span, time {
-        font-size: 1.6vh;
+        font-size: 2vh;
     }
     time {
         text-decoration: underline;
@@ -265,7 +265,7 @@ textarea {
         text-align: center;
     }
     #tle {
-        font-size: 2.2vh;
+        font-size: 2.6vh;
         margin: auto;
         display: block;
     }
