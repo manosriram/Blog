@@ -83,6 +83,7 @@ const Post = props => {
       isSpinning(true);
       setPostName(location.pathname.split('/')[3]);
       setPostID(location.pathname.split('/')[2]);
+      fetchUser();
       memorizeFetchPost();
     } catch (er) {
       history.push('/');
