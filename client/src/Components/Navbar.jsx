@@ -1,5 +1,5 @@
-import { useHistory } from "react-router-dom";
-import React from "react";
+import { useHistory, Link } from "react-router-dom";
+import React, { Fragment } from "react";
 import "./Sc2.css";
 
 const Navbar = (props, props1) => {
@@ -12,42 +12,19 @@ const Navbar = (props, props1) => {
 
     return (
         <div id="nav">
-            <>
-                <a href="/" id="reddit">
-                    Home
-                </a>
-                &nbsp; &nbsp;
-            </>
+            <Link id="reddit" to="/">Home</Link>
 
-            <a id="reddit" href="/projects">
-                Projects
-            </a>
-            &nbsp; &nbsp;
+            <Link id="reddit" to="/projects">Projects</Link>
 
-            <a id="reddit" href="/about">
-                About
-            </a>
-            &nbsp; &nbsp;
-
-            <>
-                <a href="/cold-storage" id="reddit">
-                    Cold-Storage
-                </a>
-                &nbsp; &nbsp;
-            </>
+            <Link id="reddit" to="/about">About</Link>
+    
+            <Link id="reddit" to="/cold-storage">Cold-Storage</Link>
 
             {props.createPost && (
-                <>
-                    <a href="/create-post" id="reddit">
-                        Create
-                    </a>
-                    &nbsp; &nbsp;
-                </>
+                <Link id="reddit" to="/create-post">Create</Link>
             )}
             {props.createPost && (
-                <a onClick={logout} id="reddit">
-                    Logout
-                </a>
+                <Link id="reddit" to="#" onClick={logout}>Logout</Link>
             )}
             <footer id="footer">Copyright &copy; 2020 | Mano Sriram</footer>
         </div>

@@ -83,12 +83,24 @@ const Projects = () => {
           {"  "}- Simple tool to download Youtube Videos.
         </p>
       <br />
-      <h1>Tools</h1>
+      <h1>Development Environment</h1>
       <br />
       <br />
         <p>
+          <a href="https://www.iterm2.com/">iTerm2</a>
+      {"  "}- Terminal Emulator
+        </p>
+        <p>
+          <a href="https://www.vim.org/">Vim 8.2.654</a>
+      {"  "}- Text Editor
+        </p>
+        <p>
+          <a href="https://github.com/morhetz/gruvbox">GruvBox</a>
+      {"  "}- Vim Theme (Dark)
+        </p>
+        <p>
           <a href="https://github.com/manosriram/Dot-Files">Dot Files</a>
-          {"  "}- My Dot Files for iTerm2 and Vim 8.2.654
+          {"  "}- Dot Files for iTerm2 and Vim 8.2.654
         </p>
       </div>
     </>

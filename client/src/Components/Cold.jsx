@@ -14,7 +14,7 @@ const Cold = props => {
     const [open, setOpen] = React.useState(false);
     const [spin, isSpinning] = useState(false);
     const [logStat, setLogStat] = useState(false);
-    const [storages, setStorages] = useState([]);
+    const [storages, setStorages] = useState([1]);
     const [postID, setPostID] = useState("");
     const [linkID, setLink] = useState("");
 

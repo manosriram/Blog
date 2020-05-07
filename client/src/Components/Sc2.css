@@ -51,7 +51,7 @@ pre {
   margin-left: 10vw;
   margin-right: 25vw;
   padding: 0;
-  padding-top: 10vh;
+  padding-top: 7vh;
   padding-bottom: 8vh;
   font-size: 24pt;
   text-align: left;
@@ -97,6 +97,10 @@ code {
   font-size: 0.7em;
   text-decoration: none;
   cursor: pointer;
+}
+
+a#reddit {
+    padding: 6px;
 }
 
 #nav {
