@@ -2,23 +2,22 @@ const express = require("express");
 const router = express.Router();
 const Admin = require("../Models/Admin");
 
-router.get('/logout', (req, res) => {
+router.get("/logout", (req, res) => {
     req.session.destroy();
-    return res.json({scs: true});
+    return res.json({ scs: true });
 });
 
-router.get('/checkStat', (req, res) => {
+router.get("/checkStat", (req, res) => {
     if (req.session.user)
-        return res.status(200).json({scs: true, user: req.session.user});
-    else
-        return res.status(404).json({scs: false});
+        return res.status(200).json({ scs: true, user: req.session.user });
+    else return res.status(404).json({ scs: false });
 });
 
 router.post("/enterAdmin", async (req, res) => {
-    const {email, password} = req.body.data;
+    const { email, password } = req.body.data;
 
     try {
-        const adm = await Admin.findOne({email});
+        const adm = await Admin.findOne({ email });
 
         if (!adm) {
             const adm = new Admin({
@@ -29,22 +28,20 @@ router.post("/enterAdmin", async (req, res) => {
             req.session.user = adm;
         } else {
             if (password !== adm.password)
-                return res.json({scs:false, msg: "Incorrect Password."});
+                return res.json({ scs: false, msg: "Incorrect Password." });
             if (req.session.user)
-                return res.json({scs: false, msg: "Already Logged-In"});
+                return res.json({ scs: false, msg: "Already Logged-In" });
 
             req.session.user = adm;
-            return res.json({scs: true, msg: "Logged-IN"});
+            return res.json({ scs: true, msg: "Logged-IN" });
         }
-    } catch(er) {
-        return res.json({scs: false, msg:"Error Occured"});
+    } catch (er) {
+        return res.json({ scs: false, msg: "Error Occured" });
     }
-
 });
 
-router.get('/', (req, res) => {
-    return res.json({hit: true});
+router.get("/", (req, res) => {
+    return res.json({ hit: true });
 });
-
 
 module.exports = router;

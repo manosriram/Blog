@@ -85,7 +85,7 @@ const Show = props => {
   return (
     <>
     <Helmet>
-        <title>Home | Mano Sriram</title>
+        <title>Mano Sriram</title>
         <meta name="description" content="Mano Sriram" />
     </Helmet>
 
