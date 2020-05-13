@@ -2,6 +2,9 @@
     outline: none;
     text-align: left;
 }
+center {
+    text-align: -webkit-center;
+}
 pre,
 div {
     font-family: "Inconsolata", monospace;
