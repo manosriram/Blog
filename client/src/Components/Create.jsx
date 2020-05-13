@@ -26,6 +26,7 @@ const Create = props => {
     'Announcements',
     'Data-Structures',
     'Algorithms',
+    'Tools and Utilities',
     'Chill ⏸',
   ];
   const [isUser, checkUser] = useState(false);
