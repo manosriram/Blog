@@ -19,7 +19,7 @@ const Projects = () => {
   return (
     <>
     <Helmet>
-        <title>Projects: Mano Sriram</title>
+        <title>Projects | Mano Sriram</title>
         <meta name="description" content="Mano Sriram" />
     </Helmet>
 

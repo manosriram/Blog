@@ -14,7 +14,7 @@ const App = () => {
     return (
         <>
         <Helmet>
-            <title>Home: Mano Sriram</title>
+            <title>Home | Mano Sriram</title>
             <meta name="description" content="Mano Sriram" />
         </Helmet>
         <Router>

@@ -12,4 +12,4 @@ if (rootElement.hasChildNodes()) {
   render(<App />, rootElement);
 }
 
-serviceWorker.register();
+serviceWorker.unregister();

@@ -80,7 +80,7 @@ const Cold = props => {
         return (
             <>
                 <Helmet>
-                    <title>Cold-Storage: Mano Sriram</title>
+                    <title>Cold-Storage | Mano Sriram</title>
                     <meta name="description" content="Cold-Storage" />
                 </Helmet>
                 <Navbar createPost={logStat} />
