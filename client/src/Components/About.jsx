@@ -18,7 +18,7 @@ const About = () => {
   return (
     <>
     <Helmet>
-        <title>About | Mano Sriram</title>
+        <title>About: Mano Sriram</title>
         <meta name="description" content="About" />
     </Helmet>
       <Navbar createPost={isUser} />
