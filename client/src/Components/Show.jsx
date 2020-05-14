@@ -27,7 +27,7 @@ const Show = props => {
         'Announcements',
         'Data-Structures',
         'Algorithms',
-        'Tools and Utility',
+        'Tools and Utilities',
         'Chill ⏸',
     ];
     let history = useHistory();
