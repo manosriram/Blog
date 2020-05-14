@@ -4,7 +4,7 @@ const Admin = require("../Models/Admin");
 
 router.get("/logout", (req, res) => {
     req.session.destroy();
-    return res.json({ scs: true });
+    return res.status(200).json({ scs: true });
 });
 
 router.get("/checkStat", (req, res) => {
@@ -28,20 +28,17 @@ router.post("/enterAdmin", async (req, res) => {
             req.session.user = adm;
         } else {
             if (password !== adm.password)
-                return res.json({ scs: false, msg: "Incorrect Password." });
+                return res.status(401).json({ scs: false, msg: "Incorrect Password." });
             if (req.session.user)
-                return res.json({ scs: false, msg: "Already Logged-In" });
+                return res.status(405).json({ scs: false, msg: "Already Logged-In" });
 
             req.session.user = adm;
-            return res.json({ scs: true, msg: "Logged-IN" });
+            return res.status(200).json({ scs: true, msg: "Logged-In" });
         }
     } catch (er) {
-        return res.json({ scs: false, msg: "Error Occured" });
+        return res.status(404).json({ scs: false, msg: "Error Occured" });
     }
 });
 
-router.get("/", (req, res) => {
-    return res.json({ hit: true });
-});
-
 module.exports = router;
+

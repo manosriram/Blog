@@ -7,9 +7,9 @@ router.delete("/delete-link", async (req, res) => {
 
     try {
         await Cold.deleteOne({_id: postID});
-        return res.json({scs: true, msg: "Link Deleted!"});
+        return res.status(200).json({scs: true, msg: "Link Deleted!"});
     } catch (er) {
-        return res.json({scs: false, msg: "Error Occured!"});
+        return res.status(404).json({scs: false, msg: "Error Occured!"});
     }
 });
 
@@ -17,9 +17,9 @@ router.post("/get-a-storage", async (req, res) => {
     const {storageID} = req.body;
     try {
         const store = await Cold.findOne({_id: storageID});
-        return res.json({scs: true, storage: store});
+        return res.status(200).json({scs: true, storage: store});
     } catch (er) {
-    return res.json({scs: false, msg: 'Some error occured.'});
+    return res.status(404).json({scs: false, msg: 'Some error occured.'});
     }
 });
 
@@ -28,7 +28,7 @@ router.post("/add-into-store", async (req, res) => {
     const { title, url } = req.body;
 
     if (!title || !url)
-        return res.json({ scs: false, msg: "Fill all fields." });
+        return res.status(406).json({ scs: false, msg: "Fill all fields." });
 
     try {
         const newCold = new Cold({
@@ -36,16 +36,16 @@ router.post("/add-into-store", async (req, res) => {
             url
         });
         newCold.save();
-        return res.json({ scs: true, msg: "Added into Storage!" });
+        return res.status(200).json({ scs: true, msg: "Added into Storage!" });
     } catch (er) {
-        return res.json({ scs: false, msg: "Error Occured" });
+        return res.status(406).json({ scs: false, msg: "Error Occured" });
     }
 });
 
 router.get("/get-storages", async (req, res) => {
     const allStorages = await Cold.find({}).sort({addedOn: -1});
 
-    return res.json(allStorages);
+    return res.status(200).json(allStorages);
 });
 
 module.exports = router;
