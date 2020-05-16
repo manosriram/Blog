@@ -16,7 +16,6 @@ pre {
     white-space: pre-wrap;
     word-break: keep-all;
 }
-
 #err {
     color: white;
     background: red;
@@ -45,6 +44,10 @@ pre {
 #container a {
     color: rgb(0, 0, 255);
     max-width: 100%;
+}
+
+#container pre code a {
+    color: lightgreen;
 }
 
 #container a:hover {

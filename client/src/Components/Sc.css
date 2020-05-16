@@ -3,7 +3,7 @@
     text-align: left;
 }
 center {
-    text-align: -webkit-center;
+    text-align: center;
 }
 pre,
 div {
@@ -256,7 +256,8 @@ textarea {
     #arrow {
         display: none;
     }
-    span, time {
+    span,
+    time {
         font-size: 2vh;
     }
     time {
