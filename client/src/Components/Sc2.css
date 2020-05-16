@@ -44,6 +44,7 @@ pre {
 #container a {
     color: rgb(0, 0, 255);
     max-width: 100%;
+    font-family: Anonymous Pro;
 }
 
 #container pre code a {
