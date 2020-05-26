@@ -12,21 +12,35 @@ const Navbar = (props, props1) => {
 
     return (
         <div id="nav">
-            <Link id="reddit" to="/">Home</Link>
+            <Link id="reddit" to="/">
+                Home
+            </Link>
 
-            <Link id="reddit" to="/projects">Projects</Link>
+            <Link id="reddit" to="/projects">
+                Projects
+            </Link>
 
-            <Link id="reddit" to="/about">About</Link>
-    
-            <Link id="reddit" to="/cold-storage">Cold-Storage</Link>
+            <Link id="reddit" to="/about">
+                About
+            </Link>
+
+            <Link id="reddit" to="/cold-storage">
+                Cold-Storage
+            </Link>
 
             {props.createPost && (
-                <Link id="reddit" to="/create-post">Create</Link>
+                <Link id="reddit" to="/create-post">
+                    Create
+                </Link>
             )}
             {props.createPost && (
-                <Link id="reddit" to="#" onClick={logout}>Logout</Link>
+                <Link id="reddit" to="#" onClick={logout}>
+                    Logout
+                </Link>
             )}
-            <footer id="footer">Copyright &copy; 2020 | Mano Sriram</footer>
+            <footer id="footer">
+                Mano Sriram | GNU General Public License
+            </footer>
         </div>
     );
 };
