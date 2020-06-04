@@ -198,7 +198,7 @@ const Post = props => {
                                 </a>
                             </span>
                             <br />
-                            <span>
+                            <span id="created">
                                 {moment(content.createdOn).format(
                                     "MMMM D, YYYY, hh:mm a"
                                 )}
@@ -252,7 +252,7 @@ const Post = props => {
                         <>
                             <h1 id="contentTitle">{content.title}</h1>
                             <br />
-                            <span>
+                            <span id="created">
                                 {moment(content.createdOn).format(
                                     "MMMM D, YYYY, hh:mm a"
                                 )}
