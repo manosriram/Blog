@@ -29,7 +29,7 @@ router.post("/get-post", async (req, res) => {
 });
 
 router.post("/create-post", async (req, res) => {
-    const { title, category } = req.body;
+    const { createdOn, title, category } = req.body;
     const content = req.body.content.cont;
     let em;
 
@@ -45,7 +45,7 @@ router.post("/create-post", async (req, res) => {
             content,
             category,
             createdBy: em,
-            createdOn: Date.now()
+            createdOn: createdOn
         });
 
         blg.save();

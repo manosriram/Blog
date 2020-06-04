@@ -100,6 +100,23 @@ const Show = props => {
     return (
         <>
             <Helmet>
+                <link
+                    rel="apple-touch-icon"
+                    sizes="180x180"
+                    href="../../public/Assets/apple-touch-icon.png"
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="32x32"
+                    href="../../public/Assets/favicon-32x32.png"
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="16x16"
+                    href="../../public/Assets/favicon-16x16.png"
+                />
                 <title>Mano Sriram</title>
                 <meta name="description" content="Mano Sriram" />
             </Helmet>

@@ -47,6 +47,10 @@ pre {
     font-family: "Anonymous Pro", monospace;
 }
 
+code {
+    background: lightblue;
+}
+
 #container pre code a {
     color: lightgreen;
 }
@@ -82,29 +86,20 @@ li {
     font-size: 15pt;
 }
 
-#container pre {
-    width: auto;
-    border-radius: 3px;
-    padding: 10px;
-    word-break: break-word;
-    background: #10161a;
-    color: white;
-}
-
-code {
-    font-size: 15pt;
-    font-family: "Inconsolata", monospace;
-    word-break: break-word;
-
-    background: lightblue;
-    width: auto;
-    font-weight: 500;
-}
-
 #container pre code {
     all: unset;
-    font-size: 19px;
-    font-weight: 500;
+    font-weight: bolder;
+}
+
+pre {
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+pre::-webkit-scrollbar {
+    /* WebKit */
+    width: 0;
+    height: 0;
 }
 
 #reddit {
@@ -213,7 +208,6 @@ a#reddit {
     }
     #container pre code,
     h4 {
-        font-size: 14px;
         font-weight: bolder;
     }
 }

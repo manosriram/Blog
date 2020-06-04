@@ -16,7 +16,7 @@ router.get("/checkStat", (req, res) => {
 router.post("/enterAdmin", async (req, res) => {
     const { email, password } = req.body.data;
     if (email == process.env.email && password == process.env.pass) {
-	const adm = await Admin.findOne({email});
+        const adm = await Admin.findOne({ email });
         req.session.user = adm;
         return res.status(200).json({ scs: true, msg: "Logged-In" });
     } else {
