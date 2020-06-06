@@ -126,11 +126,14 @@ const About = () => {
                     </a>
                     .
                 </p>
-                <p>
-                    <a href="https://blogbucket.s3.ap-northeast-2.amazonaws.com/Resume.pdf">
+                <h4>
+                    <a
+                        href="https://blogbucket.s3.ap-south-1.amazonaws.com/Resume.pdf
+"
+                    >
                         Resume
                     </a>
-                </p>
+                </h4>
             </div>
         </>
     );

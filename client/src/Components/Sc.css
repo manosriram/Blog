@@ -7,7 +7,7 @@ center {
 }
 pre,
 div {
-    font-family: "Inconsolata", monospace;
+    font-family: "Anonymous Pro", monospace;
     font-size: 15px;
 }
 a {
@@ -17,6 +17,11 @@ a {
 pre {
     white-space: pre-wrap;
     word-break: keep-all;
+}
+code {
+    text-decoration: underline;
+    text-decoration-color: aquamarine;
+    background: cornflowerblue;
 }
 #when a:hover {
     text-decoration: underline;
