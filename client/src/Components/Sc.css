@@ -12,7 +12,11 @@ div {
 }
 a {
     color: rgb(0, 0, 255);
+    border-bottom: 3px solid chartreuse;
     text-decoration: none;
+}
+#tle {
+    border-bottom: none;
 }
 pre {
     white-space: pre-wrap;
@@ -20,7 +24,7 @@ pre {
 }
 code {
     text-decoration: underline;
-    text-decoration-color: aquamarine;
+    text-decoration-color: white;
     background: cornflowerblue;
 }
 #when a:hover {
