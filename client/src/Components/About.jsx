@@ -97,7 +97,7 @@ const About = () => {
                 <meta name="description" content="About" />
             </Helmet>
             <Navbar createPost={isUser} />
-            <div id="container">
+            <div id="container" className="about">
                 <p>
                     Hello, My name is Mano Sriram and I'm an CS Undergraduate
                     currently living in Vizag, India. I am passionate about

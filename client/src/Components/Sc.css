@@ -106,6 +106,7 @@ code {
 #link {
     font-size: 25.5px;
     padding-right: 5px;
+    border-bottom: none;
 }
 
 #link:hover {

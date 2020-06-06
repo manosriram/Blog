@@ -132,6 +132,11 @@ a#reddit {
     padding-bottom: 10px;
 }
 
+.about a,
+.projects a {
+    border-bottom: none;
+}
+
 @media only screen and (min-width: 768px) {
     #err {
         font-size: xx-large;

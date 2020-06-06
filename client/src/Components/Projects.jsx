@@ -99,7 +99,7 @@ const Projects = () => {
             </Helmet>
 
             <Navbar createPost={isUser} />
-            <div id="container">
+            <div id="container" className="projects">
                 <p>
                     These are some of the projects I have worked (working) on.
                     Most of the time, I work on <strong>C++</strong> or MERN (
