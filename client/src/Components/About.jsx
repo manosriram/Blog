@@ -105,13 +105,21 @@ const About = () => {
                     lives better.
                 </p>
                 <p>
+                    I also post videos on <strong>YouTube</strong> frequently on
+                    technical implementations. Here's the{" "}
+                    <a href="https://www.youtube.com/channel/UCsz4I9wkbdSaFHLyELJcCuQ">
+                        Link
+                    </a>
+                    .
+                </p>
+                <p>
                     I started this blog to help people by sharing my thoughts on
                     Tech (mostly) and Non-Tech topics. Also, to use this
                     platform to share problem-sets that I faced.
                 </p>
                 <p>
                     This site was built by me for <strong>US</strong>. You can
-                    view it's source code{" "}
+                    view its source code{" "}
                     <a href="https://github.com/manosriram/Blog">HERE</a>.
                 </p>
                 <p>
