@@ -27,6 +27,7 @@ const Create = props => {
         "Data-Structures",
         "Algorithms",
         "Tools and Utilities",
+        "System Design",
         "Chill ⏸"
     ];
     const [isUser, checkUser] = useState(false);
@@ -154,4 +155,5 @@ const Create = props => {
     );
 };
 
+export default Create;
 export default Create;

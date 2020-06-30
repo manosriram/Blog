@@ -28,6 +28,7 @@ const Show = props => {
         "Data-Structures",
         "Algorithms",
         "Tools and Utilities",
+        "System Design",
         "Chill ⏸"
     ];
     let history = useHistory();
