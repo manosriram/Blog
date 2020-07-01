@@ -1,3 +1,4 @@
+import Preview from "./Preview.jsx";
 import Show from "./Show";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -36,6 +37,7 @@ const Create = props => {
     const [cat, setCat] = useState("");
     const [scs, Setscs] = useState(false);
     const [now, setNow] = useState("");
+    const [preview, openPreview] = useState(false);
     let [cont, setCont] = useState("");
 
     const fetchUser = async () => {
@@ -47,6 +49,10 @@ const Create = props => {
     React.useEffect(() => {
         fetchUser();
     }, []);
+
+    const handlePreview = () => {
+        openPreview(true);
+    };
 
     const changeTitle = e => {
         setT({ ...titl, titl: e.target.value });
@@ -85,22 +91,28 @@ const Create = props => {
 
     if (!isUser) return <Show />;
 
+    if (preview) {
+        return <Preview data={cont.cont} isUser={isUser} />;
+    }
+
     return (
         <>
             <Navbar name="Create Post" createPost={isUser} />
-            <br />
+            <a href="#" onClick={handlePreview}>
+                Preview
+            </a>
             <form id="frm" method="POST">
                 {scs && <h3 className="global-flash-success">{msg}</h3>}
                 {!scs && <h3 className="global-flash-failure">{msg}</h3>}
                 <br />
-                <input
-                    id="title"
+                <textarea
+                    id="tinp"
                     type="text"
                     name="title"
-                    placeholder="Title"
+                    placeholder="New Post Title here."
                     onChange={changeTitle}
                     maxlength="256"
-                />
+                ></textarea>
                 <br />
                 <FormControl className={classes.formControl}>
                     <Select
@@ -124,33 +136,20 @@ const Create = props => {
                 <br />
 
                 <textarea
-                    id="tarea"
+                    id="tinp"
+                    className="tarea"
                     rows="70"
                     cols="30"
                     tag="textarea"
                     onChange={handleEditorChange}
+                    placeholder="Post content here."
                 >
                     {props.def ? props.def.content : ""}
                 </textarea>
-
-                <br />
-                <br />
-                <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={fetchNThrow}
-                >
-                    Post
-                </Button>
             </form>
-            <br />
-            <br />
-            <h3 id="frm">Preview Window.</h3>
-            <div id="previewContent">
-                <Markdown source={cont.cont} escapeHtml={false} />
+            <div id="finalPost">
+                <button onClick={fetchNThrow}>Publish</button>
             </div>
-            <br />
-            <br />
         </>
     );
 };
