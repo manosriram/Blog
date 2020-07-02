@@ -98,9 +98,6 @@ const Create = props => {
     return (
         <>
             <Navbar name="Create Post" createPost={isUser} />
-            <a href="#" onClick={handlePreview}>
-                Preview
-            </a>
             <form id="frm" method="POST">
                 {scs && <h3 className="global-flash-success">{msg}</h3>}
                 {!scs && <h3 className="global-flash-failure">{msg}</h3>}
@@ -149,6 +146,13 @@ const Create = props => {
             </form>
             <div id="finalPost">
                 <button onClick={fetchNThrow}>Publish</button>
+            </div>
+            <br />
+            <br />
+            <div id="previewBox">
+                <div id="editorContent">
+                    <Markdown source={cont.cont} />
+                </div>
             </div>
         </>
     );
