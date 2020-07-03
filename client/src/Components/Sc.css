@@ -2,9 +2,6 @@
     outline: none;
     text-align: left;
 }
-*::placeholder {
-    color: grey;
-}
 center {
     text-align: center;
 }
@@ -13,7 +10,6 @@ div {
     font-family: "Inconsolata", monospace;
     font-size: 15px;
 }
-
 a {
     color: rgb(0, 0, 255);
     border-bottom: 3px solid chartreuse;
@@ -62,18 +58,10 @@ code {
     text-decoration: underline;
 }
 
-#frm,
-#previewBox {
-    margin: 50px;
-    text-align: center;
-}
-
 #frm {
     text-align: center;
-    width: 50%;
-    border: 4px solid grey;
-    border-radius: 4px;
-    float: left;
+    margin: 10px;
+    padding: 5px;
 }
 
 #frm .global-flash-success,
@@ -87,33 +75,9 @@ code {
     height: 2vh;
 }
 
-#tinp {
-    font-size: 3em;
-    font-weight: bold;
-    width: 99%;
-    text-align: center;
-}
-
-#tinp.tarea {
-    font-size: 1.4em;
-    text-align: center;
-}
-#finalPost {
-    text-align: center;
-    margin: auto;
-    top: 90%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    position: absolute;
-}
-
-#finalPost button {
-    background: rgb(59, 73, 223);
-    border-color: rgb(59, 73, 223);
+#title {
     font-size: 1.5em;
-    font-weight: bold;
-    padding: 4px;
-    color: white;
+    width: 50%;
 }
 
 #title::placeholder {
@@ -187,8 +151,7 @@ code {
     text-align: center;
 }
 
-#urlSub:hover,
-#finalPost button:hover {
+#urlSub:hover {
     cursor: pointer;
 }
 
@@ -245,51 +208,15 @@ code {
     cursor: pointer;
 }
 
-.tarea {
-    height: 50vh;
+#tarea {
+    width: 80%;
+    height: 60vh;
     outline: none;
 }
 
 textarea {
     font-size: 15px;
     outline: none;
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: -internal-light-dark-color(black, white);
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    -webkit-appearance: textarea;
-    background-color: -internal-light-dark-color(
-        rgb(255, 255, 255),
-        rgb(59, 59, 59)
-    );
-    -webkit-rtl-ordering: logical;
-    flex-direction: column;
-    resize: auto;
-    cursor: text;
-    white-space: pre-wrap;
-    overflow-wrap: break-word;
-    margin: 0em;
-    font: 400 13.3333px Arial;
-    border-width: 1px;
-    border-style: solid;
-    border-color: -internal-light-dark-color(
-        rgb(118, 118, 118),
-        rgb(195, 195, 195)
-    );
-    border-image: initial;
-    padding: 2px;
-
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.5;
-    margin: 0;
-    border: none;
 }
 
 #inCont #oops p {
