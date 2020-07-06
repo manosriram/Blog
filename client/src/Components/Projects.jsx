@@ -193,7 +193,9 @@ const Projects = () => {
                     {"  "}- Text Editor
                 </p>
                 <p>
-                    <a href="https://github.com/ayu-theme/ayu-vim">Ayu_Dark</a>
+                    <a href="https://github.com/morhetz/gruvbox">
+                        GruvBox Dark
+                    </a>
                     {"  "}- Vim Theme
                 </p>
                 <p>
