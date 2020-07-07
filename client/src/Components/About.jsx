@@ -123,7 +123,7 @@ const About = () => {
                     <a href="https://github.com/manosriram/Blog">HERE</a>.
                 </p>
                 <p>
-                    You can contact me via{" "}
+                    I do Freelance, you can contact me via{" "}
                     <a href="mailto:mano.sriram0@gmail.com">Email</a> ,{" "}
                     <a href="https://www.linkedin.com/in/mano-sriram-866569166/">
                         LinkedIN
