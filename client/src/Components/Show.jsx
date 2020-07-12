@@ -70,6 +70,7 @@ const Show = props => {
             const resp = await fetch("/blog/show-posts");
             let data = await resp.json();
             data = data.posts;
+            console.log(data);
             setPosts(data);
             setAllPosts(data);
             isSpinning(false);
@@ -160,6 +161,7 @@ const Show = props => {
                         </div>
                         <br />
                         <br />
+                        {console.log(posts)}
                         {!posts.length ? (
                             <div id="oops">
                                 <p>Oops! Nothing here...</p>

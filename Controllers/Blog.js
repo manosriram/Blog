@@ -2,7 +2,11 @@ const express = require("express");
 const router = express.Router();
 const Blog = require("../Models/Blog");
 
-router.delete("/delete-post", async (req, res) => {
+let cachedData = null,
+    cachedTime = null;
+const time = 30 * 1000; // 30 Seconds.
+
+router.delete("/delete-post", async (req, res, next) => {
     const { postID } = req.body;
     if (req.session.user) {
         try {
@@ -17,7 +21,7 @@ router.delete("/delete-post", async (req, res) => {
     }
 });
 
-router.post("/get-post", async (req, res) => {
+router.post("/get-post", async (req, res, next) => {
     const { postID } = req.body;
     try {
         const post = await Blog.findOne({ _id: postID });
@@ -28,7 +32,7 @@ router.post("/get-post", async (req, res) => {
     }
 });
 
-router.post("/create-post", async (req, res) => {
+router.post("/create-post", async (req, res, next) => {
     const { createdOn, title, category } = req.body;
     const content = req.body.content.cont;
     let em;
@@ -49,6 +53,7 @@ router.post("/create-post", async (req, res) => {
         });
 
         blg.save();
+        cachedData = null;
         return res.status(200).json({ scs: true, msg: "Uploaded Post!" });
     } catch (er) {
         console.log(er);
@@ -56,13 +61,24 @@ router.post("/create-post", async (req, res) => {
     }
 });
 
-router.get("/show-posts", async (req, res) => {
-    const posts = await Blog.find({ createdBy: "mano.sriram0@gmail.com" }).sort(
-        {
-            createdOn: -1
+router.get("/show-posts", async (req, res, next) => {
+    try {
+        if (cachedData) {
+            return res.status(200).json({ posts: cachedData });
+        } else {
+            const posts = await Blog.find({
+                createdBy: "mano.sriram0@gmail.com"
+            }).sort({
+                createdOn: -1
+            });
+            cachedData = posts;
+            cachedTime = Date.now();
+            return res.status(200).json({ posts });
         }
-    );
-    return res.status(200).json({ posts });
+    } catch (err) {
+        console.log(er);
+        return res.status(404).json({ scs: false, msg: "Some error occured." });
+    }
 });
 
 module.exports = router;

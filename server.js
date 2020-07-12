@@ -11,17 +11,29 @@ const session = require("express-session");
 
 mongoose.set("useFindAndModify", false);
 mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true})
-  .then(() => console.log("MongoDB Connected !"))
-  .catch(err => console.log(err));
+    .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("MongoDB Connected !"))
+    .catch(err => console.log(err));
 
 app.use(helmet());
 app.use(express.static(path.join(__dirname, "client/build")));
-app.use(session({secret:process.env.SCT, resave: false, saveUninitialized: true, maxAge: new Date(Date.now() + (30 * 86400 * 1000))}));
+app.use(
+    session({
+        secret: process.env.SCT,
+        resave: false,
+        saveUninitialized: true,
+        maxAge: new Date(Date.now() + 30 * 86400 * 1000)
+    })
+);
 app.use(bp.json());
 app.use("/auth", require("./Controllers/Auth"));
 app.use("/blog", require("./Controllers/Blog"));
 app.use("/cold", require("./Controllers/Cold"));
+
+app.use((err, req, res, next) => {
+    console.log(err);
+    next();
+});
 
 app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "client/build/index.html"), err => {
