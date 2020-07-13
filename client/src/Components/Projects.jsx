@@ -185,11 +185,13 @@ const Projects = () => {
                 <br />
                 <br />
                 <p>
-                    <a href="https://www.iterm2.com/">iTerm2</a>
+                    <a href="https://github.com/alacritty/alacritty">
+                        Alacritty
+                    </a>
                     {"  "}- Terminal Emulator
                 </p>
                 <p>
-                    <a href="https://www.vim.org/">Vim 8.2.654</a>
+                    <a href="https://www.vim.org/">Vim</a>
                     {"  "}- Text Editor
                 </p>
                 <p>
@@ -202,7 +204,7 @@ const Projects = () => {
                     <a href="https://github.com/manosriram/Dot-Files">
                         Dot Files
                     </a>
-                    {"  "}- Dot Files for iTerm2 and Vim 8.2.654
+                    {"  "}- Dot Files for Alacritty and Vim
                 </p>
             </div>
         </>
