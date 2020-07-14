@@ -206,6 +206,10 @@ const Projects = () => {
                     </a>
                     {"  "}- Dot Files for Alacritty and Vim
                 </p>
+                <p>
+                    <a href="https://github.com/tmux/tmux/wiki">TMUX</a>
+                    {"  "}- Terminal Multiplexer
+                </p>
             </div>
         </>
     );
