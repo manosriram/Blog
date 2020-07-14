@@ -191,6 +191,10 @@ const Projects = () => {
                     {"  "}- Terminal Emulator
                 </p>
                 <p>
+                    <a href="https://github.com/tmux/tmux/wiki">TMUX</a>
+                    {"  "}- Terminal Multiplexer
+                </p>
+                <p>
                     <a href="https://www.vim.org/">Vim</a>
                     {"  "}- Text Editor
                 </p>
@@ -205,10 +209,6 @@ const Projects = () => {
                         Dot Files
                     </a>
                     {"  "}- Dot Files for Alacritty and Vim
-                </p>
-                <p>
-                    <a href="https://github.com/tmux/tmux/wiki">TMUX</a>
-                    {"  "}- Terminal Multiplexer
                 </p>
             </div>
         </>
