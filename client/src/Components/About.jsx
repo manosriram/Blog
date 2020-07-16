@@ -105,12 +105,11 @@ const About = () => {
                     lives better.
                 </p>
                 <p>
-                    I also post videos on <strong>YouTube</strong> frequently on
-                    technical implementations. Here's the{" "}
+                    I Stream videos on Technical Implementations on{" "}
+                    <a href="https://www.twitch.tv/manosriram">Twitch</a>and{" "}
                     <a href="https://www.youtube.com/channel/UCsz4I9wkbdSaFHLyELJcCuQ">
-                        Link
+                        Youtube
                     </a>
-                    .
                 </p>
                 <p>
                     I started this blog to help people by sharing my thoughts on
