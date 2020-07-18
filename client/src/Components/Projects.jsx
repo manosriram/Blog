@@ -199,12 +199,6 @@ const Projects = () => {
                     {"  "}- Text Editor
                 </p>
                 <p>
-                    <a href="https://github.com/morhetz/gruvbox">
-                        GruvBox Dark
-                    </a>
-                    {"  "}- Vim Theme
-                </p>
-                <p>
                     <a href="https://github.com/manosriram/Dot-Files">
                         Dot Files
                     </a>
