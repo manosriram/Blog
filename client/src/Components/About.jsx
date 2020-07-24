@@ -105,10 +105,10 @@ const About = () => {
                     lives better.
                 </p>
                 <p>
-                    I make videos on
+                    I make videos on{" "}
                     <a href="https://www.youtube.com/channel/UCsz4I9wkbdSaFHLyELJcCuQ">
                         Youtube
-                    </a>{" "}
+                    </a>
                     .
                 </p>
                 <p>
