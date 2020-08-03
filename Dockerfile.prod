@@ -8,3 +8,8 @@ COPY ./ ./
 RUN cd client && npm install && npm run build
 
 CMD ["npm", "run", "prod"]
+
+# First, open the port on which the server is running.
+# Then, build the docker file.
+# Docker images (Get latest image id)
+# Then, do: docker run -p 80:<PORT> <image-id>
