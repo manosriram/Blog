@@ -245,7 +245,7 @@ const Post = props => {
                     <meta name="description" content={postName} />
                 </Helmet>
                 <Navbar />
-                <div id="container">
+                <div id="container" className="postContainer">
                     {spin ? (
                         <div className="loader"></div>
                     ) : (
