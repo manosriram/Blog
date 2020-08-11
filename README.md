@@ -18,3 +18,10 @@ npm start
 ```
 
 > Browser automatically opens window in port 3000.
+
+### Running in Docker Container.
+```
+docker build -f Dockerfile.dev -t <dockerusername>/<appname> .
+
+docker run -d -p <hostport>:<applicationport> <dockerusername>/<appname>
+```
