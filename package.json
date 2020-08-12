@@ -5,7 +5,8 @@
     "main": "server.js",
     "scripts": {
         "dev": "nodemon server.js",
-        "prod": "pm2 server.js"
+        "prod": "pm2 server.js",
+        "start": "pm2 ecosystem.yml"
     },
     "repository": {
         "type": "git",

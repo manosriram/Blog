@@ -176,12 +176,14 @@ a#reddit {
 }
 
 @media only screen and (max-width: 415px) {
+    .postContainer {
+        width: 85% !important;
+    }
     #err {
         width: 60%;
     }
     img {
         max-width: 100%;
-        min-width: 100px;
         height: auto;
     }
     #created {
