@@ -117,7 +117,12 @@ const Navbar = (props, props1) => {
                 </Link>
             )}
             {props.createPost && (
-                <Link id="reddit" to="#" onClick={logout}>
+                <Link id="reddit" to="/drafts">
+                    Drafts
+                </Link>
+            )}
+            {props.createPost && (
+                <Link className="logout" id="reddit" to="#" onClick={logout}>
                     Logout
                 </Link>
             )}

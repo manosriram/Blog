@@ -1,6 +1,8 @@
 * {
     outline: none;
     text-align: left;
+    margin: 0;
+    padding: 0;
 }
 center {
     text-align: center;
@@ -219,6 +221,10 @@ textarea {
     outline: none;
 }
 
+#inCont {
+    margin: 20px;
+}
+
 #inCont #oops p {
     margin: auto;
     text-align: center;
@@ -227,7 +233,6 @@ textarea {
 }
 
 #previewContent {
-    border: 1px dotted black;
     text-align: center;
     font-family: "PT Serif", serif;
     font-size: 15px;
@@ -287,8 +292,7 @@ textarea {
         font-size: 2.5vh;
     }
     #inCont {
-        padding: 0;
-        margin: 0;
+        margin: 25px;
     }
 }
 
@@ -318,5 +322,8 @@ textarea {
     #title {
         font-size: 1em;
         width: 50%;
+    }
+    #inCont {
+        margin: 20px;
     }
 }

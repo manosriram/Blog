@@ -148,6 +148,10 @@ a#reddit {
     border-bottom: none;
 }
 
+.logout {
+    float: right;
+}
+
 @media only screen and (min-width: 768px) {
     #err {
         font-size: xx-large;

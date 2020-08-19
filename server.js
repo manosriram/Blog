@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 5000;
 const db = require("./DBase/url").url;
 const path = require("path");
-const session = require("express-session");
+const cookieSession = require("cookie-session");
 
 mongoose.set("useFindAndModify", false);
 mongoose
@@ -18,11 +18,9 @@ mongoose
 app.use(helmet());
 app.use(express.static(path.join(__dirname, "client/build")));
 app.use(
-    session({
-        secret: process.env.SCT,
-        resave: false,
-        saveUninitialized: true,
-        maxAge: new Date(Date.now() + 30 * 86400 * 1000)
+    cookieSession({
+        signed: false,
+        secure: false
     })
 );
 app.use(bp.json());

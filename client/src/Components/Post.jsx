@@ -38,11 +38,22 @@ const Post = props => {
 
     const openUpdate = cont => {
         setB(true);
+        cont.upd = true;
+        if (location.state.method === "DRAFT")
+            cont.state = "DRAFT";
         setCN(cont);
     };
 
+    const handlePostDraft = async () => {
+        const url = `/blog/move-draft/${postID}`;
+        const resp = await fetch(url);
+        const rec = await resp.json();
+    };
+
     const deletePost = async () => {
-        const resp = await fetch("/blog/delete-post", {
+        let url = "/blog/delete-post";
+        if (location.state.method === "DRAFT") url = "/blog/delete-draft";
+        const resp = await fetch(url, {
             method: "DELETE",
             headers: {
                 Accept: "application/json",
@@ -51,12 +62,15 @@ const Post = props => {
             body: JSON.stringify({ postID: postID })
         });
         const rec = await resp.json();
-        if (rec.scs) history.push("/");
+        if (rec.scs) history.push("/drafts");
     };
 
     const fetchPost = async () => {
         try {
-            const resp = await fetch("/blog/get-post", {
+            let url;
+            if (location.state.method === "DRAFT") url = "/blog/get-draft/";
+            else url = "/blog/get-post/";
+            const resp = await fetch(url, {
                 method: "POST",
                 headers: {
                     Accept: "application/json",
@@ -195,6 +209,11 @@ const Post = props => {
                             <span>
                                 <a id="tle" onClick={() => openUpdate(content)}>
                                     update
+                                </a>
+                            </span>{" "}
+                            <span>
+                                <a id="tle" onClick={handlePostDraft}>
+                                    post
                                 </a>
                             </span>
                             <br />

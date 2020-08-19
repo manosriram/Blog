@@ -61,12 +61,20 @@ const Create = props => {
         setNow(event.target.value);
     };
 
-    const fetchNThrow = async e => {
+    const fetchNThrow = async (e, throwType) => {
         e.preventDefault();
+        let url,
+            method = "POST";
+        if (throwType === "POST") url = "/blog/create-post";
+        else url = "/blog/draft-post";
         const createdOn = props.def ? props.def.createdOn : Date.now();
+        if (props.def.upd) {
+            method = "PUT";
+            url = `/blog/update-post/${props.def._id}`;
+        }
 
-        const resp = await fetch("/blog/create-post", {
-            method: "POST",
+        const resp = await fetch(url, {
+            method,
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
@@ -75,7 +83,8 @@ const Create = props => {
                 content: cont,
                 title: titl.titl,
                 category: cat,
-                createdOn: createdOn
+                createdOn: createdOn,
+                draft: props.def.state === "DRAFT"
             })
         });
         const data = await resp.json();
@@ -99,7 +108,8 @@ const Create = props => {
                     name="title"
                     placeholder="Title"
                     onChange={changeTitle}
-                    maxlength="256"
+                    maxLength="256"
+                    defaultValue={props.def ? props.def.title : ""}
                 />
                 <br />
                 <FormControl className={classes.formControl}>
@@ -138,14 +148,22 @@ const Create = props => {
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={fetchNThrow}
+                    onClick={e => fetchNThrow(e, "POST")}
                 >
                     Post
+                </Button>
+                {"  "}
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={e => fetchNThrow(e, "DRAFT")}
+                >
+                    Save as Draft
                 </Button>
             </form>
             <br />
             <br />
-            <h3 id="frm">Preview Window.</h3>
+            <h3 id="frm">Preview.</h3>
             <div id="previewContent">
                 <Markdown source={cont.cont} escapeHtml={false} />
             </div>

@@ -1,3 +1,4 @@
+import Drafts from "./Components/Drafts";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Admin from "./Components/Admin";
@@ -111,6 +112,9 @@ const App = () => {
                     </Route>
                     <Route path="/cold-storage">
                         <Cold />
+                    </Route>
+                    <Route path="/drafts">
+                        <Drafts />
                     </Route>
                     <Route path="/">
                         <Show />

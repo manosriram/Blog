@@ -39,7 +39,7 @@ const Show = props => {
     const [now, setNow] = useState("");
     const [postName, setPostName] = useState("");
     const [spin, isSpinning] = useState(false);
-    const [isUser, checkUser] = useState(false);
+    const [isUser, checkUser] = useState(undefined);
     const [err, setErr] = useState("");
 
     const fetchUser = async () => {
@@ -67,9 +67,10 @@ const Show = props => {
 
     const fetchData = async () => {
         try {
-            const resp = await fetch("/blog/show-posts");
+            const resp = await fetch("/blog/show-drafts");
             let data = await resp.json();
-            data = data.posts;
+            data = data.drafts;
+            console.log(data);
             setPosts(data);
             setAllPosts(data);
             isSpinning(false);
@@ -92,11 +93,16 @@ const Show = props => {
 
     if (postID) {
         history.push(`/post/${postID}/${postName}`, {
-            postID: postID
+            postID: postID,
+            method: "DRAFT"
         });
     }
 
     if (err) return <Error msg={err} isUser={isUser} />;
+
+    if (isUser === false) {
+        history.push("/");
+    }
 
     return (
         <>
@@ -160,7 +166,8 @@ const Show = props => {
                         </div>
                         <br />
                         <br />
-                        {!posts.length ? (
+                        {console.log(posts)}
+                        {posts && posts.length === 0 ? (
                             <div id="oops">
                                 <p>Oops! Nothing here...</p>
                             </div>
