@@ -39,8 +39,7 @@ const Post = props => {
     const openUpdate = cont => {
         setB(true);
         cont.upd = true;
-        if (location.state.method === "DRAFT")
-            cont.state = "DRAFT";
+        if (location.state.method === "DRAFT") cont.state = "DRAFT";
         setCN(cont);
     };
 
@@ -211,11 +210,13 @@ const Post = props => {
                                     update
                                 </a>
                             </span>{" "}
-                            <span>
-                                <a id="tle" onClick={handlePostDraft}>
-                                    post
-                                </a>
-                            </span>
+                            {location.state.method === "DRAFT" && (
+                                <span>
+                                    <a id="tle" onClick={handlePostDraft}>
+                                        post
+                                    </a>
+                                </span>
+                            )}
                             <br />
                             <span id="created">
                                 {moment(content.createdOn).format(

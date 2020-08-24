@@ -152,7 +152,7 @@ router.post("/get-post", async (req, res, next) => {
 });
 
 router.post("/create-post", async (req, res, next) => {
-    const { title, category } = req.body;
+    const { title, category, createdOn } = req.body;
     const content = req.body.content.cont;
     let em;
 

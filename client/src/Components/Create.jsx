@@ -68,7 +68,7 @@ const Create = props => {
         if (throwType === "POST") url = "/blog/create-post";
         else url = "/blog/draft-post";
         const createdOn = props.def ? props.def.createdOn : Date.now();
-        if (props.def.upd) {
+        if (props.def && props.def.upd) {
             method = "PUT";
             url = `/blog/update-post/${props.def._id}`;
         }
@@ -84,7 +84,7 @@ const Create = props => {
                 title: titl.titl,
                 category: cat,
                 createdOn: createdOn,
-                draft: props.def.state === "DRAFT"
+                draft: props.def && props.def.state === "DRAFT"
             })
         });
         const data = await resp.json();
