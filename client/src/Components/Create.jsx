@@ -67,7 +67,7 @@ const Create = props => {
             method = "POST";
         if (throwType === "POST") url = "/blog/create-post";
         else url = "/blog/draft-post";
-        const createdOn = props.def ? props.def.createdOn : Date.now();
+        const createdOn = Date.now();
         if (props.def && props.def.upd) {
             method = "PUT";
             url = `/blog/update-post/${props.def._id}`;
