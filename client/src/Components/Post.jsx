@@ -46,7 +46,7 @@ const Post = props => {
     const handlePostDraft = async () => {
         const url = `/blog/move-draft/${postID}`;
         const resp = await fetch(url);
-        const rec = await resp.json();
+        await resp.json();
     };
 
     const deletePost = async () => {
@@ -67,7 +67,8 @@ const Post = props => {
     const fetchPost = async () => {
         try {
             let url;
-            if (location.state.method === "DRAFT") url = "/blog/get-draft/";
+            if (location.state && location.state.method === "DRAFT")
+                url = "/blog/get-draft/";
             else url = "/blog/get-post/";
             const resp = await fetch(url, {
                 method: "POST",
