@@ -96,9 +96,11 @@ const Navbar = (props, props1) => {
                 />
             </Helmet>
             <Link id="reddit" to="/">
-                Mano Sriram
+                Home
             </Link>
-
+            <a id="reddit" href="https://www.manosriram.com">
+                Mano Sriram
+            </a>
             {props.createPost && (
                 <Link id="reddit" to="/create-post">
                     Create
