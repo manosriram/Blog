@@ -26,7 +26,6 @@ app.use(
 app.use(bp.json());
 app.use("/auth", require("./Controllers/Auth"));
 app.use("/blog", require("./Controllers/Blog"));
-app.use("/cold", require("./Controllers/Cold"));
 
 app.use((err, req, res, next) => {
     console.log(err);

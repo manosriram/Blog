@@ -96,19 +96,7 @@ const Navbar = (props, props1) => {
                 />
             </Helmet>
             <Link id="reddit" to="/">
-                Home
-            </Link>
-
-            <Link id="reddit" to="/projects">
-                Projects
-            </Link>
-
-            <Link id="reddit" to="/about">
-                About
-            </Link>
-
-            <Link id="reddit" to="/cold-storage">
-                Cold-Storage
+                Mano Sriram
             </Link>
 
             {props.createPost && (
@@ -126,9 +114,6 @@ const Navbar = (props, props1) => {
                     Logout
                 </Link>
             )}
-            <footer id="footer">
-                Mano Sriram | GNU General Public License
-            </footer>
         </div>
     );
 };

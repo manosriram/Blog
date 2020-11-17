@@ -7,6 +7,13 @@
 center {
     text-align: center;
 }
+
+h1,
+h2 {
+    display: block;
+    margin-bottom: 5px;
+}
+
 pre,
 div {
     font-family: "Inconsolata", monospace;
@@ -75,6 +82,7 @@ code {
 #contentTitle {
     width: 50vw;
     height: 2vh;
+    display: inline;
 }
 
 #title {
@@ -188,11 +196,10 @@ code {
 
 #reddit {
     border-bottom: none;
-    font-family: Verdana, Helvetica, sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: firebrick;
-    font-size: 0.7em;
+    font-family: Spectral, Merriweather, Georgia, serif;
+    text-transform: capitalize;
+    color: black;
+    font-size: 0.9em;
     text-decoration: none;
 }
 
@@ -259,7 +266,7 @@ textarea {
         font-size: 1.5vh;
     }
     #tle {
-        font-size: 2vh;
+        font-size: 1.9vh;
     }
 }
 

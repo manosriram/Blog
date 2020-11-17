@@ -170,14 +170,6 @@ const Show = props => {
                                     <>
                                         <div id="two" key={ind}>
                                             <div id="when" key={ind + 1}>
-                                                <time>
-                                                    {moment(
-                                                        el.createdOn
-                                                    ).format("MMMM D, YYYY")}
-                                                </time>
-                                                &nbsp;
-                                                <span id="arrow">»</span>
-                                                &nbsp;
                                                 <a
                                                     id="tle"
                                                     key={ind + 1}
