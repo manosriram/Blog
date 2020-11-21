@@ -111,6 +111,9 @@ const Navbar = (props, props1) => {
                     Drafts
                 </Link>
             )}
+            <Link id="reddit" to="/subscribe">
+                Subscribe to Newsletter
+            </Link>
             {props.createPost && (
                 <Link className="logout" id="reddit" to="#" onClick={logout}>
                     Logout

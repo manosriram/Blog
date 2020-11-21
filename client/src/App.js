@@ -8,6 +8,7 @@ import Projects from "./Components/Projects";
 import About from "./Components/About";
 import Post from "./Components/Post";
 import Cold from "./Components/Cold";
+import Newsletter from "./Components/Newsletter";
 import "./App.css";
 import { Helmet } from "react-helmet";
 
@@ -95,6 +96,9 @@ const App = () => {
             </Helmet>
             <Router>
                 <Switch>
+                    <Route path="/subscribe">
+                        <Newsletter />
+                    </Route>
                     <Route path="/notAnAdminRoute">
                         <Admin />
                     </Route>
