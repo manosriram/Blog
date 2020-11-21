@@ -120,6 +120,18 @@ const App = () => {
                     <Route path="/drafts">
                         <Drafts />
                     </Route>
+                    <Route
+                        path="/newsletter/unsubscribe/:email"
+                        render={async () => {
+                            const resp = await fetch(
+                                `/newsletter/unsubscribe/${
+                                    window.location.pathname.split("/")[3]
+                                }`
+                            );
+                            const data = await resp.json();
+                            console.log(data);
+                        }}
+                    />
                     <Route path="/">
                         <Show />
                     </Route>

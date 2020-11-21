@@ -36,6 +36,7 @@ const Create = props => {
     const [cat, setCat] = useState("");
     const [scs, Setscs] = useState(false);
     const [now, setNow] = useState("");
+    const [desc, setD] = useState("");
     let [cont, setCont] = useState("");
 
     const fetchUser = async () => {
@@ -47,6 +48,10 @@ const Create = props => {
     React.useEffect(() => {
         fetchUser();
     }, []);
+
+    const changeDesc = e => {
+        setD({ ...desc, desc: e.target.value });
+    };
 
     const changeTitle = e => {
         setT({ ...titl, titl: e.target.value });
@@ -62,34 +67,39 @@ const Create = props => {
     };
 
     const fetchNThrow = async (e, throwType) => {
-        e.preventDefault();
-        let url,
-            method = "POST";
-        if (throwType === "POST") url = "/blog/create-post";
-        else url = "/blog/draft-post";
-        const createdOn = Date.now();
-        if (props.def && props.def.upd) {
-            method = "PUT";
-            url = `/blog/update-post/${props.def._id}`;
-        }
+        try {
+            e.preventDefault();
+            let url,
+                method = "POST";
+            if (throwType === "POST") url = "/blog/create-post";
+            else url = "/blog/draft-post";
+            const createdOn = Date.now();
+            if (props.def && props.def.upd) {
+                method = "PUT";
+                url = `/blog/update-post/${props.def._id}`;
+            }
 
-        const resp = await fetch(url, {
-            method,
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                content: cont,
-                title: titl.titl,
-                category: cat,
-                createdOn: createdOn,
-                draft: props.def && props.def.state === "DRAFT"
-            })
-        });
-        const data = await resp.json();
-        setMsg(data.msg);
-        Setscs(data.scs);
+            const resp = await fetch(url, {
+                method,
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    content: cont,
+                    title: titl.titl,
+                    category: cat,
+                    createdOn: createdOn,
+                    description: desc,
+                    draft: props.def && props.def.state === "DRAFT"
+                })
+            });
+            const data = await resp.json();
+            setMsg(data.msg);
+            Setscs(data.scs);
+        } catch (er) {
+            console.log(er);
+        }
     };
 
     if (!isUser) return <Show />;
@@ -145,6 +155,17 @@ const Create = props => {
 
                 <br />
                 <br />
+                <input
+                    id="title"
+                    type="text"
+                    name="description"
+                    placeholder="Email Description"
+                    onChange={changeDesc}
+                    maxLength="256"
+                />
+                <br />
+                <br />
+
                 <Button
                     variant="contained"
                     color="primary"

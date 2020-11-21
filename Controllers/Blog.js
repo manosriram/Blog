@@ -2,11 +2,14 @@ const express = require("express");
 const router = express.Router();
 const Blog = require("../Models/Blog");
 const Draft = require("../Models/Draft");
+const mailer = require("nodemailer");
+const template = require("../emailTemplate");
 
 let cachedData = null,
     cachedTime = null;
 const time = 30 * 1000; // 30 Seconds.
 
+router.get("/sendmail", async (req, res) => {});
 router.put("/update-post/:id", async (req, res) => {
     try {
         const { id } = req.params;
@@ -152,9 +155,13 @@ router.post("/get-post", async (req, res, next) => {
 });
 
 router.post("/create-post", async (req, res, next) => {
-    const { title, category, createdOn } = req.body;
+    const { title, category, createdOn, description } = req.body;
     const content = req.body.content.cont;
     let em;
+
+    if (!req.session.user) {
+        res.status(403).json({ success: false, message: "Not authorized" });
+    }
 
     if (!content || !title || !category)
         return res.status(406).json({ scs: false, msg: "Fill all fields" });
@@ -171,7 +178,38 @@ router.post("/create-post", async (req, res, next) => {
             createdOn: createdOn
         });
 
-        blg.save();
+        await blg.save();
+        // Send email to audience.
+
+        const html = template(
+            description.desc,
+            `blog.manosriram.com/post/${title}`,
+            "iamkbpr@gmail.com"
+        );
+        let transport = mailer.createTransport({
+            port: 465,
+            host: process.env.host,
+            secureConnection: true,
+            auth: {
+                user: process.env.goemail,
+                pass: process.env.gopass
+            }
+        });
+        let options = {
+            from: process.env.goemail,
+            to: "iamkbpr@gmail.com",
+            subject: "New blog out - Mano Sriram",
+            html
+        };
+
+        transport.sendMail(options, err => {
+            console.log("sending");
+            if (err) console.log(err);
+            else {
+                console.log("Sent!");
+            }
+        });
+
         cachedData = null;
         return res.status(200).json({ scs: true, msg: "Uploaded Post!" });
     } catch (er) {
