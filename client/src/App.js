@@ -11,6 +11,7 @@ import Cold from "./Components/Cold";
 import Newsletter from "./Components/Newsletter";
 import "./App.css";
 import { Helmet } from "react-helmet";
+import Unsubscribed from "./Components/Unsubscribed";
 
 const App = () => {
     return (
@@ -120,18 +121,9 @@ const App = () => {
                     <Route path="/drafts">
                         <Drafts />
                     </Route>
-                    <Route
-                        path="/newsletter/unsubscribe/:email"
-                        render={async () => {
-                            const resp = await fetch(
-                                `/newsletter/unsubscribe/${
-                                    window.location.pathname.split("/")[3]
-                                }`
-                            );
-                            const data = await resp.json();
-                            console.log(data);
-                        }}
-                    />
+                    <Route path="/newsletter/unsubscribe/:email">
+                        <Unsubscribed />
+                    </Route>
                     <Route path="/">
                         <Show />
                     </Route>

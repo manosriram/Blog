@@ -4,6 +4,7 @@ const Blog = require("../Models/Blog");
 const Draft = require("../Models/Draft");
 const mailer = require("nodemailer");
 const template = require("../emailTemplate");
+const letters = require("../Models/Newsletter");
 
 let cachedData = null,
     cachedTime = null;
@@ -154,6 +155,39 @@ router.post("/get-post", async (req, res, next) => {
     }
 });
 
+function sendMail(title, description, email) {
+    return new Promise((resolve, reject) => {
+        const html = template(
+            description,
+            `blog.manosriram.com/post/${title}`,
+            email
+        );
+        let transport = mailer.createTransport({
+            port: 465,
+            host: process.env.host,
+            secureConnection: true,
+            auth: {
+                user: process.env.goemail,
+                pass: process.env.gopass
+            }
+        });
+        let options = {
+            from: process.env.goemail,
+            to: email,
+            subject: "New blog out - Mano Sriram",
+            html
+        };
+
+        transport.sendMail(options, err => {
+            if (err) reject(false);
+            else {
+                console.log(`Email sent: ${email}`);
+                resolve(true);
+            }
+        });
+    });
+}
+
 router.post("/create-post", async (req, res, next) => {
     const { title, category, createdOn, description } = req.body;
     const content = req.body.content.cont;
@@ -181,33 +215,9 @@ router.post("/create-post", async (req, res, next) => {
         await blg.save();
         // Send email to audience.
 
-        const html = template(
-            description.desc,
-            `blog.manosriram.com/post/${title}`,
-            "iamkbpr@gmail.com"
-        );
-        let transport = mailer.createTransport({
-            port: 465,
-            host: process.env.host,
-            secureConnection: true,
-            auth: {
-                user: process.env.goemail,
-                pass: process.env.gopass
-            }
-        });
-        let options = {
-            from: process.env.goemail,
-            to: "iamkbpr@gmail.com",
-            subject: "New blog out - Mano Sriram",
-            html
-        };
-
-        transport.sendMail(options, err => {
-            console.log("sending");
-            if (err) console.log(err);
-            else {
-                console.log("Sent!");
-            }
+        const users = await Newsletter.find();
+        users.forEach(async user => {
+            await sendMail(title, description.desc, user.email);
         });
 
         cachedData = null;

@@ -3,10 +3,17 @@ const router = express.Router();
 const Newsletter = require("../Models/Newsletter");
 
 router.get("/unsubscribe/:email", async (req, res) => {
-    const { email } = req.params;
+    try {
+        const { email } = req.params;
 
-    await Newsletter.deleteOne({ email });
-    return res.send("Email unsubscribed from mailing list");
+        await Newsletter.deleteOne({ email });
+        return res.json({
+            success: true,
+            message: "Email unsubscribed from mailing list"
+        });
+    } catch (er) {
+        console.log(er);
+    }
 });
 
 router.post("/subscribe", async (req, res) => {
