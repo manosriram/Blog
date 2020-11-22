@@ -14,7 +14,7 @@ const Newsletter = () => {
         root: {
             "& > *": {
                 margin: theme.spacing(1),
-                width: "55ch"
+                width: "auto"
             }
         }
     }));
