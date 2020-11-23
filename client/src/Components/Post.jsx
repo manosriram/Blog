@@ -112,6 +112,11 @@ const Post = props => {
         return (
             <>
                 <Helmet>
+                    <script
+                        data-ad-client="ca-pub-3914701687422003"
+                        async
+                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+                    ></script>
                     <link
                         rel="apple-touch-icon"
                         sizes="57x57"
